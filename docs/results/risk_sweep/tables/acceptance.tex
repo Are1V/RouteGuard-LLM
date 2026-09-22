@@ -1,0 +1,31 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Realised risk of the acceptance rule: error rate among *accepted* initial answers, by the model that produced them. Compare with the target risk of risk-controlled systems. Mean $\pm$ std over 3 seeds.}
+\label{tab:acceptance}
+\begin{tabular}{lrrrr}
+\toprule
+System & Model & Acceptance rate (\%) & Accepted error rate (\%) & Accepted / seed \\
+\midrule
+always\_large & qwen3-8b & 99.2 $\pm$ 0.7 & 19.3 $\pm$ 0.7 & 853 $\pm$ 6 \\
+always\_medium & qwen3-1.7b & 98.6 $\pm$ 0.5 & 32.8 $\pm$ 1.1 & 848 $\pm$ 5 \\
+always\_small & qwen3-0.6b & 55.7 $\pm$ 4.9 & 43.1 $\pm$ 1.0 & 479 $\pm$ 42 \\
+cascade\_a0.5 & qwen3-0.6b & 78.3 $\pm$ 11.1 & 46.0 $\pm$ 2.5 & 673 $\pm$ 96 \\
+routeguard\_a0.15 & qwen3-1.7b & 9.9 $\pm$ 17.2 & 16.3 & 41 $\pm$ 71 \\
+routeguard\_a0.15 & qwen3-8b & 5.0 $\pm$ 4.5 & 28.1 $\pm$ 5.3 & 20 $\pm$ 19 \\
+routeguard\_a0.25 & qwen3-1.7b & 26.8 $\pm$ 24.7 & 24.5 $\pm$ 4.6 & 109 $\pm$ 102 \\
+routeguard\_a0.25 & qwen3-8b & 90.3 $\pm$ 16.8 & 24.9 $\pm$ 4.2 & 349 $\pm$ 88 \\
+routeguard\_a0.35 & qwen3-1.7b & 97.3 $\pm$ 3.6 & 26.6 $\pm$ 1.7 & 366 $\pm$ 52 \\
+routeguard\_a0.35 & qwen3-8b & 100.0 $\pm$ 0.0 & 27.4 $\pm$ 2.0 & 383 $\pm$ 37 \\
+routeguard\_a0.5 & qwen3-0.6b & 80.2 $\pm$ 8.4 & 28.5 $\pm$ 7.0 & 81 $\pm$ 21 \\
+routeguard\_a0.5 & qwen3-1.7b & 100.0 $\pm$ 0.0 & 26.7 $\pm$ 1.8 & 376 $\pm$ 53 \\
+routeguard\_a0.5 & qwen3-8b & 100.0 $\pm$ 0.0 & 27.4 $\pm$ 2.0 & 383 $\pm$ 37 \\
+routeguard\_conditional\_a0.25 & qwen3-0.6b & 23.0 $\pm$ 39.8 & 24.7 & 24 $\pm$ 42 \\
+routeguard\_conditional\_a0.25 & qwen3-1.7b & 68.1 $\pm$ 34.1 & 25.7 $\pm$ 2.3 & 256 $\pm$ 144 \\
+routeguard\_conditional\_a0.25 & qwen3-8b & 15.8 $\pm$ 27.4 & 20.6 & 58 $\pm$ 101 \\
+routeguard\_conditional\_a0.35 & qwen3-0.6b & 28.3 $\pm$ 49.0 & 27.8 & 30 $\pm$ 52 \\
+routeguard\_conditional\_a0.35 & qwen3-1.7b & 99.6 $\pm$ 0.5 & 26.6 $\pm$ 1.8 & 374 $\pm$ 52 \\
+routeguard\_conditional\_a0.35 & qwen3-8b & 85.1 $\pm$ 14.5 & 23.6 $\pm$ 2.6 & 329 $\pm$ 88 \\
+\bottomrule
+\end{tabular}
+\end{table}

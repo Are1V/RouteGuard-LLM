@@ -1,0 +1,49 @@
+# End-to-end smoke experiment on the simulated backend (runs in CI in ~1 minute).
+#
+# Purpose: verify that every component (splits, fitting, routers, confidence,
+# calibration, risk control, verification, escalation, metrics, tables, figures)
+# runs together. The numbers it produces are NOT model results: the backend is
+# simulated and the data is a 74-item software-test fixture.
+name: smoke
+description: Simulated end-to-end check of the full benchmark protocol.
+seeds: [0, 1]
+output_dir: results/runs
+
+pipeline:
+  extends: ../../configs/demo.yaml
+  cache: {path: .routeguard_cache/smoke.sqlite}
+  confidence: {method: mean_token_prob, calibration: isotonic, min_samples: 10}
+
+data:
+  - loader: jsonl
+    path: benchmarks/samples/smoke.jsonl
+
+splits: {train: 0.45, calibration: 0.25, test: 0.3, stratify_by: [category]}
+
+report:
+  reference_system: routeguard_full
+
+systems:
+  - {name: always_small, group: baseline, overrides: {router: {type: fixed, options: {model: small}}, escalation: {enabled: false}}}
+  - {name: always_medium, group: baseline, overrides: {router: {type: fixed, options: {model: medium}}, escalation: {enabled: false}}}
+  - {name: always_large, group: baseline, overrides: {router: {type: fixed, options: {model: large}}, escalation: {enabled: false}}}
+  - {name: random, group: baseline, overrides: {router: {type: random}, escalation: {enabled: false}}}
+  - {name: rule_based, group: baseline, overrides: {router: {type: rules}, escalation: {enabled: false}}}
+  - {name: difficulty_threshold, group: baseline, overrides: {escalation: {enabled: false}}}
+  - name: routeguard_full
+    group: routeguard
+    overrides:
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.6}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.2, delta: 0.2, min_accepted: 5}}
+        stages: [{type: stronger_model}, {type: self_consistency, options: {n: 3}}]
+  - name: no_escalation
+    group: ablation
+    overrides:
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.6}}
+      escalation: {enabled: false}
+  - name: oracle
+    group: oracle
+    overrides: {router: {type: oracle}, escalation: {enabled: false}}

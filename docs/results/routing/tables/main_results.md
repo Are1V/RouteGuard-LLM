@@ -1,0 +1,21 @@
+**Quality, reliability and cost of all systems (test split). Mean ± std over 3 seeds.**
+
+| System | Group | Accuracy (%) | Macro-acc. lang. (%) | Compute/query (TFLOPs) | Latency mean (s) | Escalation rate (%) |
+|---|---:|---:|---:|---:|---:|---:|
+| always_large | baseline | 80.5 ± 0.6 | 79.3 ± 0.8 | 5.682 ± 0.040 | 2.757 ± 0.003 | 0.0 ± 0.0 |
+| always_medium | baseline | 66.6 ± 1.0 | 67.0 ± 0.4 | 1.066 ± 0.007 | 0.919 ± 0.011 | 0.0 ± 0.0 |
+| always_small | baseline | 47.9 ± 0.7 | 47.9 ± 1.1 | 0.309 ± 0.002 | 0.448 ± 0.016 | 0.0 ± 0.0 |
+| cost_aware_t0.5 | routeguard | 60.7 ± 1.1 | 60.1 ± 3.4 | 1.443 ± 0.136 | 0.943 ± 0.080 | 0.0 ± 0.0 |
+| cost_aware_t0.7 | routeguard | 72.0 ± 1.1 | 72.7 ± 0.5 | 3.329 ± 0.165 | 1.682 ± 0.120 | 0.0 ± 0.0 |
+| cost_aware_t0.85 | routeguard | 77.4 ± 0.7 | 77.5 ± 2.0 | 4.776 ± 0.143 | 2.294 ± 0.086 | 0.0 ± 0.0 |
+| learned_router | routeguard | 52.8 ± 0.7 | 53.3 ± 1.1 | 0.741 ± 0.080 | 0.642 ± 0.059 | 0.0 ± 0.0 |
+| oracle | oracle | 86.5 ± 0.2 | 88.2 ± 0.6 | 1.320 ± 0.017 | 0.916 ± 0.034 | 0.0 ± 0.0 |
+| quality_cost_l0.05 | routeguard | 78.4 ± 0.6 | 78.1 ± 1.5 | 5.065 ± 0.121 | 2.472 ± 0.090 | 0.0 ± 0.0 |
+| quality_cost_l0.2 | routeguard | 70.5 ± 1.6 | 70.6 ± 0.5 | 2.484 ± 0.200 | 1.410 ± 0.114 | 0.0 ± 0.0 |
+| quality_cost_l0.5 | routeguard | 65.0 ± 1.6 | 64.8 ± 0.9 | 0.996 ± 0.017 | 0.876 ± 0.011 | 0.0 ± 0.0 |
+| random | baseline | 64.0 ± 0.1 | 63.2 ± 0.5 | 2.300 ± 0.075 | 1.372 ± 0.005 | 0.0 ± 0.0 |
+| rule_based | baseline | 61.7 ± 0.6 | 64.6 ± 1.1 | 1.596 ± 0.057 | 1.017 ± 0.025 | 0.0 ± 0.0 |
+| threshold_heuristic | baseline | 62.1 ± 0.3 | 57.9 ± 0.9 | 1.639 ± 0.053 | 1.104 ± 0.020 | 0.0 ± 0.0 |
+| threshold_learned | baseline | 54.7 ± 0.4 | 54.2 ± 1.3 | 0.697 ± 0.005 | 0.640 ± 0.029 | 0.0 ± 0.0 |
+| threshold_llm_judge | baseline | 66.6 ± 1.0 | 67.0 ± 0.4 | 1.207 ± 0.008 | 0.947 ± 0.011 | 0.0 ± 0.0 |
+| threshold_neural | baseline | 54.5 ± 0.8 | 54.3 ± 1.5 | 0.917 ± 0.068 | 0.699 ± 0.032 | 0.0 ± 0.0 |

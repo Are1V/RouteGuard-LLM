@@ -1,0 +1,34 @@
+# Does routing behave differently across languages, and does training the router on English
+# only transfer to Kazakh, Russian, Persian, and Dari?
+extends: ../baselines/main.yaml
+name: multilingual
+description: English-only vs multilingual router training; per-language calibration.
+report: {reference_system: routeguard}
+systems:
+  - name: always_small
+    group: baseline
+    overrides: {router: {type: fixed, options: {model: qwen3-0.6b}}, escalation: {enabled: false}}
+  - name: always_large
+    group: baseline
+    overrides: {router: {type: fixed, options: {model: qwen3-8b}}, escalation: {enabled: false}}
+  - name: routeguard
+    group: routeguard
+    overrides: &full
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.7}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}
+  - name: routeguard_english_trained
+    group: ablation
+    description: difficulty estimator and router trained on English items only
+    overrides:
+      <<: *full
+      fit: {train_languages: [en]}
+  - name: routeguard_per_language_calibration
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: mean_token_prob, calibration: isotonic, per_language: true, min_samples: 30}
+  - name: oracle
+    group: oracle
+    overrides: {router: {type: oracle}, escalation: {enabled: false}}

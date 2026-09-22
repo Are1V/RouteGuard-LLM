@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Cost and latency. Mean $\pm$ std over 3 seeds.}
+\label{tab:efficiency}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Input tok./query & Output tok./query & Compute/query (TFLOPs) & Latency p50 (s) & Latency p95 (s) & Calls/query \\
+\midrule
+conf\_entropy & 336.0 $\pm$ 23.3 & 175.1 $\pm$ 9.3 & 5.951 $\pm$ 0.505 & 3.217 $\pm$ 0.358 & 5.660 $\pm$ 0.050 & 1.62 $\pm$ 0.11 \\
+conf\_min\_token\_prob & 347.4 $\pm$ 10.2 & 182.5 $\pm$ 3.7 & 6.258 $\pm$ 0.082 & 3.353 $\pm$ 0.149 & 6.066 $\pm$ 0.659 & 1.67 $\pm$ 0.03 \\
+conf\_sequence\_logprob & 336.5 $\pm$ 22.5 & 175.7 $\pm$ 8.4 & 5.968 $\pm$ 0.475 & 3.217 $\pm$ 0.358 & 5.659 $\pm$ 0.051 & 1.62 $\pm$ 0.10 \\
+heuristic\_difficulty & 335.0 $\pm$ 23.8 & 174.7 $\pm$ 9.2 & 5.945 $\pm$ 0.506 & 3.217 $\pm$ 0.358 & 5.645 $\pm$ 0.073 & 1.61 $\pm$ 0.11 \\
+neural\_difficulty & 341.0 $\pm$ 23.2 & 177.9 $\pm$ 9.7 & 5.959 $\pm$ 0.535 & 3.275 $\pm$ 0.395 & 5.675 $\pm$ 0.057 & 1.64 $\pm$ 0.11 \\
+no\_confidence & 218.7 $\pm$ 4.0 & 116.0 $\pm$ 1.5 & 3.426 $\pm$ 0.126 & 1.140 $\pm$ 0.016 & 4.330 $\pm$ 0.136 & 1.02 $\pm$ 0.01 \\
+no\_escalation & 215.0 $\pm$ 1.8 & 113.0 $\pm$ 1.2 & 3.329 $\pm$ 0.165 & 1.137 $\pm$ 0.020 & 4.242 $\pm$ 0.020 & 1.00 $\pm$ 0.00 \\
+no\_task\_classification & 320.2 $\pm$ 13.5 & 98.4 $\pm$ 3.6 & 5.084 $\pm$ 0.081 & 1.773 $\pm$ 0.082 & 4.897 $\pm$ 0.042 & 1.56 $\pm$ 0.05 \\
+no\_verification & 335.1 $\pm$ 24.8 & 175.0 $\pm$ 9.6 & 5.933 $\pm$ 0.535 & 3.217 $\pm$ 0.358 & 5.644 $\pm$ 0.074 & 1.62 $\pm$ 0.11 \\
+oracle\_task\_labels & 358.9 $\pm$ 13.3 & 193.5 $\pm$ 7.5 & 6.339 $\pm$ 0.109 & 3.125 $\pm$ 0.090 & 5.606 $\pm$ 0.054 & 1.73 $\pm$ 0.04 \\
+routeguard & 335.9 $\pm$ 23.4 & 175.2 $\pm$ 9.2 & 5.951 $\pm$ 0.504 & 3.217 $\pm$ 0.358 & 5.645 $\pm$ 0.073 & 1.62 $\pm$ 0.11 \\
+uncalibrated\_fixed\_threshold & 242.5 $\pm$ 5.2 & 127.3 $\pm$ 2.7 & 3.923 $\pm$ 0.126 & 1.303 $\pm$ 0.131 & 4.587 $\pm$ 0.172 & 1.14 $\pm$ 0.01 \\
+\bottomrule
+\end{tabular}
+\end{table}

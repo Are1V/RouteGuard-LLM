@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# RouteGuard artefacts
+.routeguard_cache/
+data/
+results/runs/*
+!results/runs/.gitkeep
+results/raw/*
+results/processed/*
+results/figures/*
+results/tables/*
+!results/*/.gitkeep
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+logs/
+
+# Web application
+node_modules/
+.next/
+apps/web/.env.local
+*.tsbuildinfo

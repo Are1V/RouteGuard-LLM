@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Quality, reliability and cost of all systems (test split). Mean $\pm$ std over 3 seeds.}
+\label{tab:main_results}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Group & Accuracy (\%) & Macro-acc. lang. (\%) & Compute/query (TFLOPs) & Latency mean (s) & Escalation rate (\%) \\
+\midrule
+always\_large & baseline & 80.5 $\pm$ 0.6 & 79.3 $\pm$ 0.8 & 5.682 $\pm$ 0.040 & 2.757 $\pm$ 0.003 & 0.0 $\pm$ 0.0 \\
+always\_medium & baseline & 66.6 $\pm$ 1.0 & 67.0 $\pm$ 0.4 & 1.066 $\pm$ 0.007 & 0.919 $\pm$ 0.011 & 0.0 $\pm$ 0.0 \\
+always\_small & baseline & 47.9 $\pm$ 0.7 & 47.9 $\pm$ 1.1 & 0.309 $\pm$ 0.002 & 0.448 $\pm$ 0.016 & 0.0 $\pm$ 0.0 \\
+cascade\_a0.25 & baseline & 78.6 $\pm$ 3.1 & 80.0 $\pm$ 1.1 & 5.665 $\pm$ 1.312 & 3.393 $\pm$ 0.710 & 100.0 $\pm$ 0.0 \\
+cascade\_a0.35 & baseline & 69.4 $\pm$ 0.7 & 69.5 $\pm$ 1.0 & 1.810 $\pm$ 0.192 & 1.573 $\pm$ 0.059 & 100.0 $\pm$ 0.0 \\
+cascade\_a0.5 & baseline & 55.7 $\pm$ 3.2 & 54.5 $\pm$ 3.7 & 0.782 $\pm$ 0.086 & 0.768 $\pm$ 0.076 & 24.9 $\pm$ 10.7 \\
+oracle & oracle & 86.5 $\pm$ 0.2 & 88.2 $\pm$ 0.6 & 1.320 $\pm$ 0.017 & 0.916 $\pm$ 0.034 & 0.0 $\pm$ 0.0 \\
+routeguard\_a0.15 & routeguard & 80.6 $\pm$ 0.9 & 80.0 $\pm$ 0.9 & 5.951 $\pm$ 0.504 & 3.134 $\pm$ 0.300 & 50.9 $\pm$ 7.7 \\
+routeguard\_a0.25 & routeguard & 79.3 $\pm$ 1.5 & 79.2 $\pm$ 0.8 & 5.460 $\pm$ 0.696 & 2.849 $\pm$ 0.402 & 43.4 $\pm$ 8.4 \\
+routeguard\_a0.35 & routeguard & 74.6 $\pm$ 1.1 & 74.2 $\pm$ 0.5 & 3.634 $\pm$ 0.128 & 1.869 $\pm$ 0.101 & 14.2 $\pm$ 3.9 \\
+routeguard\_a0.5 & routeguard & 73.4 $\pm$ 0.5 & 73.2 $\pm$ 0.9 & 3.474 $\pm$ 0.127 & 1.763 $\pm$ 0.091 & 3.8 $\pm$ 1.7 \\
+routeguard\_conditional\_a0.15 & routeguard & 80.9 $\pm$ 0.6 & 80.2 $\pm$ 0.8 & 6.223 $\pm$ 0.080 & 3.287 $\pm$ 0.049 & 55.5 $\pm$ 4.3 \\
+routeguard\_conditional\_a0.25 & routeguard & 76.8 $\pm$ 2.6 & 76.8 $\pm$ 2.7 & 4.535 $\pm$ 0.788 & 2.328 $\pm$ 0.395 & 24.0 $\pm$ 13.3 \\
+routeguard\_conditional\_a0.35 & routeguard & 74.1 $\pm$ 1.5 & 73.9 $\pm$ 0.2 & 3.536 $\pm$ 0.203 & 1.814 $\pm$ 0.156 & 9.8 $\pm$ 5.4 \\
+\bottomrule
+\end{tabular}
+\end{table}

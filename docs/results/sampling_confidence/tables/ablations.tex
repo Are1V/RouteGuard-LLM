@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Ablations relative to routeguard.}
+\label{tab:ablations}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Accuracy (\%) & Δ acc. vs ref. (pp) & 95\% CI (pp) & Compute/query (TFLOPs) & Escalation rate (\%) \\
+\midrule
+routeguard & 76.5 & 0.0 & -- & 6.330 & 47.2 \\
+conf\_self\_consistency & 76.5 & +0.0 & [+0.0, +0.0] & 31.665 & 47.2 \\
+conf\_semantic\_entropy & 76.5 & +0.0 & [+0.0, +0.0] & 31.665 & 47.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

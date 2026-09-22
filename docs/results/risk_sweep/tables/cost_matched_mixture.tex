@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Accuracy relative to the best cost-matched random mixture of the fixed-model systems (upper concave hull; per seed, then mean $\pm$ std). Positive = the system adds value beyond how much compute it spends. Mean $\pm$ std over 3 seeds.}
+\label{tab:cost_matched_mixture}
+\begin{tabular}{lrrrr}
+\toprule
+System & Group & Compute/query (TFLOPs) & Accuracy (\%) & Gap vs mixture (pp) \\
+\midrule
+always\_large & baseline & 5.682 $\pm$ 0.040 & 80.5 $\pm$ 0.6 & 0.0 $\pm$ 0.0 \\
+always\_medium & baseline & 1.066 $\pm$ 0.007 & 66.6 $\pm$ 1.0 & 0.0 $\pm$ 0.0 \\
+always\_small & baseline & 0.309 $\pm$ 0.002 & 47.9 $\pm$ 0.7 & 0.0 $\pm$ 0.0 \\
+cascade\_a0.25 & baseline & 5.665 $\pm$ 1.312 & 78.6 $\pm$ 3.1 & -0.4 $\pm$ 1.2 \\
+cascade\_a0.35 & baseline & 1.810 $\pm$ 0.192 & 69.4 $\pm$ 0.7 & 0.5 $\pm$ 0.1 \\
+cascade\_a0.5 & baseline & 0.782 $\pm$ 0.086 & 55.7 $\pm$ 3.2 & -3.7 $\pm$ 1.3 \\
+oracle & oracle & 1.320 $\pm$ 0.017 & 86.5 $\pm$ 0.2 & 19.1 $\pm$ 1.2 \\
+routeguard\_a0.15 & routeguard & 5.951 $\pm$ 0.504 & 80.6 $\pm$ 0.9 & 0.5 $\pm$ 0.1 \\
+routeguard\_a0.25 & routeguard & 5.460 $\pm$ 0.696 & 79.3 $\pm$ 1.5 & 0.1 $\pm$ 0.4 \\
+routeguard\_a0.35 & routeguard & 3.634 $\pm$ 0.128 & 74.6 $\pm$ 1.1 & 0.3 $\pm$ 0.4 \\
+routeguard\_a0.5 & routeguard & 3.474 $\pm$ 0.127 & 73.4 $\pm$ 0.5 & -0.4 $\pm$ 0.3 \\
+routeguard\_conditional\_a0.15 & routeguard & 6.223 $\pm$ 0.080 & 80.9 $\pm$ 0.6 & 0.5 $\pm$ 0.1 \\
+routeguard\_conditional\_a0.25 & routeguard & 4.535 $\pm$ 0.788 & 76.8 $\pm$ 2.6 & -0.2 $\pm$ 0.6 \\
+routeguard\_conditional\_a0.35 & routeguard & 3.536 $\pm$ 0.203 & 74.1 $\pm$ 1.5 & 0.2 $\pm$ 0.7 \\
+\bottomrule
+\end{tabular}
+\end{table}

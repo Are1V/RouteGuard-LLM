@@ -1,0 +1,36 @@
+# Sampling-based confidence (self-consistency / semantic entropy) costs n extra generations per
+# answer, so it is run separately: one seed and half of the core-suite items (same seed-independent,
+# per-language subsampling, so languages stay balanced and parallel items aligned). The full
+# RouteGuard reference is re-run on the same subset, so the comparison is within this experiment.
+extends: ../baselines/main.yaml
+name: sampling_confidence
+seeds: [0]
+data:
+  - {loader: belebele, name: belebele, limit: 75,
+     options: {languages: [eng_Latn, kaz_Cyrl, rus_Cyrl, pes_Arab]}}
+  - {loader: sib200, name: sib200, limit: 50,
+     options: {languages: [eng_Latn, kaz_Cyrl, rus_Cyrl, pes_Arab, prs_Arab]}}
+  - {loader: global_mmlu, name: global_mmlu, limit: 50, options: {languages: [en, ru, fa]}}
+  - {loader: mgsm, name: mgsm, limit: 75, options: {languages: [en, ru]}}
+  - {loader: mbpp, name: mbpp, limit: 75}
+  - {loader: nq_open, name: nq_open, limit: 75}
+  - {loader: arc, name: arc_challenge, limit: 75}
+report: {reference_system: routeguard}
+systems:
+  - name: routeguard
+    group: routeguard
+    overrides: &full
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.7}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}
+  - name: conf_self_consistency
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: self_consistency, options: {n_samples: 4, temperature: 0.7}}
+  - name: conf_semantic_entropy
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: semantic_entropy, options: {n_samples: 4, temperature: 0.7}}

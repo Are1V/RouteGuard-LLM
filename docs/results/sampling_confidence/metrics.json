@@ -1,0 +1,4289 @@
+{
+  "simulated": false,
+  "model_order": [
+    "qwen3-0.6b",
+    "qwen3-1.7b",
+    "qwen3-8b"
+  ],
+  "reference_system": "routeguard",
+  "systems": {
+    "conf_self_consistency": {
+      "group": "ablation",
+      "fixed_model": null,
+      "per_seed": {
+        "0": {
+          "accuracy": 0.7651162790697674,
+          "initial_accuracy": 0.7069767441860465,
+          "exact_match": 0.7627906976744186,
+          "f1": 0.7692118863049096,
+          "text_f1": 0.292037037037037,
+          "macro_accuracy_language": 0.7379824561403509,
+          "macro_accuracy_category": 0.7630092592592593,
+          "extraction_failure_rate": 0.013953488372093023,
+          "n": 430.0,
+          "latency_mean_s": 13.293390674713896,
+          "latency_p50_s": 13.93202513000142,
+          "latency_p95_s": 28.63756808169728,
+          "input_tokens_mean": 1736.1627906976744,
+          "output_tokens_mean": 894.753488372093,
+          "tokens_total": 1131294.0,
+          "cost_usd_mean": 0.0,
+          "cost_usd_total": 0.0,
+          "tflops_mean": 31.665372786046515,
+          "calls_mean": 8.046511627906977,
+          "throughput_qps": 0.07522535254321203,
+          "routing_accuracy": 0.3,
+          "unnecessary_large_model_rate": 0.6186046511627907,
+          "incorrect_small_model_rate": 0.08837209302325581,
+          "oracle_accuracy": 0.8488372093023255,
+          "share_tier_0": 0.1372093023255814,
+          "share_tier_1": 0.33488372093023255,
+          "share_tier_2": 0.5279069767441861,
+          "escalation_rate": 0.4720930232558139,
+          "escalation_success_rate": 0.8226600985221675,
+          "escalation_precision": 0.30049261083743845,
+          "escalation_recall": 0.48412698412698413,
+          "corrected_rate": 0.6065573770491803,
+          "harmed_rate": 0.08450704225352113,
+          "initial_errors_corrected": 0.29365079365079366,
+          "initial_correct_broken": 0.039473684210526314,
+          "escalation_cost_share": 0.4142705699753726,
+          "escalation_latency_mean_s": 5.685360416385143,
+          "stages_mean": 0.6093023255813953,
+          "rel_ece": 0.07080829716076471,
+          "rel_brier": 0.17603056252522506,
+          "rel_auroc_error_detection": 0.7358239348370927,
+          "rel_auprc_error_detection": 0.559073150122433,
+          "rel_aurc": 0.15509386845712853,
+          "rel_error_rate": 0.2930232558139535,
+          "rel_n": 430.0,
+          "rel_calibrated_fraction": 1.0,
+          "rel_verifier_coverage": 1.0,
+          "rel_verifier_accuracy": 0.7372093023255814,
+          "rel_verifier_false_pass_rate": 0.873015873015873,
+          "rel_verifier_false_fail_rate": 0.009868421052631578
+        }
+      },
+      "metrics": {
+        "accuracy": {
+          "mean": 0.7651162790697674,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "calls_mean": {
+          "mean": 8.046511627906977,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "corrected_rate": {
+          "mean": 0.6065573770491803,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_mean": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_total": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_cost_share": {
+          "mean": 0.4142705699753726,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_latency_mean_s": {
+          "mean": 5.685360416385143,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_precision": {
+          "mean": 0.30049261083743845,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_rate": {
+          "mean": 0.4720930232558139,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_recall": {
+          "mean": 0.48412698412698413,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_success_rate": {
+          "mean": 0.8226600985221675,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "exact_match": {
+          "mean": 0.7627906976744186,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "extraction_failure_rate": {
+          "mean": 0.013953488372093023,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "f1": {
+          "mean": 0.7692118863049096,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "harmed_rate": {
+          "mean": 0.08450704225352113,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "incorrect_small_model_rate": {
+          "mean": 0.08837209302325581,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_accuracy": {
+          "mean": 0.7069767441860465,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_correct_broken": {
+          "mean": 0.039473684210526314,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_errors_corrected": {
+          "mean": 0.29365079365079366,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "input_tokens_mean": {
+          "mean": 1736.1627906976744,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_mean_s": {
+          "mean": 13.293390674713896,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p50_s": {
+          "mean": 13.93202513000142,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p95_s": {
+          "mean": 28.63756808169728,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_category": {
+          "mean": 0.7630092592592593,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_language": {
+          "mean": 0.7379824561403509,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "oracle_accuracy": {
+          "mean": 0.8488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "output_tokens_mean": {
+          "mean": 894.753488372093,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auprc_error_detection": {
+          "mean": 0.559073150122433,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_aurc": {
+          "mean": 0.15509386845712853,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auroc_error_detection": {
+          "mean": 0.7358239348370927,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_brier": {
+          "mean": 0.17603056252522506,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_calibrated_fraction": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_ece": {
+          "mean": 0.07080829716076471,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_error_rate": {
+          "mean": 0.2930232558139535,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_accuracy": {
+          "mean": 0.7372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_coverage": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_fail_rate": {
+          "mean": 0.009868421052631578,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_pass_rate": {
+          "mean": 0.873015873015873,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "routing_accuracy": {
+          "mean": 0.3,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_0": {
+          "mean": 0.1372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_1": {
+          "mean": 0.33488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_2": {
+          "mean": 0.5279069767441861,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "stages_mean": {
+          "mean": 0.6093023255813953,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "text_f1": {
+          "mean": 0.292037037037037,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tflops_mean": {
+          "mean": 31.665372786046515,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "throughput_qps": {
+          "mean": 0.07522535254321203,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tokens_total": {
+          "mean": 1131294.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "unnecessary_large_model_rate": {
+          "mean": 0.6186046511627907,
+          "std": 0.0,
+          "n": 1.0
+        }
+      },
+      "by_language": {
+        "en": {
+          "accuracy": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.46842105263157896,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.7526315789473684,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.7671637426900585,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.6684210526315789,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7874579124579125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.5444908223001906,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.18391974192616986,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.6927259092613423,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.20349419830137372,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.10023873780422957,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.3315789473684211,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.6894736842105263,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.015748031496062992,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9047619047619048,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "fa": {
+          "accuracy": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.2,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.38095238095238093,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.903008103008103,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.4508981605769532,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.8095238095238095,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.22574472566554746,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.24199121391429088,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.7,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.5,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7142857142857143,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "kk": {
+          "accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7916666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.5292307692307692,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.09620324836512183,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.7774999999999999,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.12193979132746775,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.05495196658545063,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.19999999999999996,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.82,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "pes_Arab": {
+          "accuracy": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.66,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.4104761904761905,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.1606661398821225,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.682952182952183,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.1869856581781428,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.10383344408231293,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.26,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "prs_Arab": {
+          "accuracy": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.05537570466169538,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.7083333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.10779201101928373,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.16954545454545442,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.09999999999999998,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "ru": {
+          "accuracy": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.54,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.01,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.76,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7823809523809524,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.5331444615326194,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.14574054372414852,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.759046052631579,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.14912236999608625,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.07559476421014895,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.24,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.013157894736842105,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7916666666666666,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "by_category": {
+        "classification": {
+          "accuracy": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.77,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8099999999999999,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "coding": {
+          "accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 30.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.9666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "factual_qa": {
+          "accuracy": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.375,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4133487654320988,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3194444444444444,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4069264069264069,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 72.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.4583333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "math": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 60.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "reading_comprehension": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.008333333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.725,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 120.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.65,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "science": {
+          "accuracy": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7314814814814815,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 48.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.20833333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "acceptance_by_model": {
+        "qwen3-0.6b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-1.7b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-8b": {
+          "acceptance_rate": {
+            "mean": 0.6960352422907489,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": 0.13924050632911392,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n_accepted": {
+            "mean": 158.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        }
+      }
+    },
+    "conf_semantic_entropy": {
+      "group": "ablation",
+      "fixed_model": null,
+      "per_seed": {
+        "0": {
+          "accuracy": 0.7651162790697674,
+          "initial_accuracy": 0.7069767441860465,
+          "exact_match": 0.7627906976744186,
+          "f1": 0.7692118863049096,
+          "text_f1": 0.292037037037037,
+          "macro_accuracy_language": 0.7379824561403509,
+          "macro_accuracy_category": 0.7630092592592593,
+          "extraction_failure_rate": 0.013953488372093023,
+          "n": 430.0,
+          "latency_mean_s": 13.293390674713896,
+          "latency_p50_s": 13.93202513000142,
+          "latency_p95_s": 28.63756808169728,
+          "input_tokens_mean": 1736.1627906976744,
+          "output_tokens_mean": 894.753488372093,
+          "tokens_total": 1131294.0,
+          "cost_usd_mean": 0.0,
+          "cost_usd_total": 0.0,
+          "tflops_mean": 31.665372786046515,
+          "calls_mean": 8.046511627906977,
+          "throughput_qps": 0.07522535254321203,
+          "routing_accuracy": 0.3,
+          "unnecessary_large_model_rate": 0.6186046511627907,
+          "incorrect_small_model_rate": 0.08837209302325581,
+          "oracle_accuracy": 0.8488372093023255,
+          "share_tier_0": 0.1372093023255814,
+          "share_tier_1": 0.33488372093023255,
+          "share_tier_2": 0.5279069767441861,
+          "escalation_rate": 0.4720930232558139,
+          "escalation_success_rate": 0.8226600985221675,
+          "escalation_precision": 0.30049261083743845,
+          "escalation_recall": 0.48412698412698413,
+          "corrected_rate": 0.6065573770491803,
+          "harmed_rate": 0.08450704225352113,
+          "initial_errors_corrected": 0.29365079365079366,
+          "initial_correct_broken": 0.039473684210526314,
+          "escalation_cost_share": 0.4142705699753726,
+          "escalation_latency_mean_s": 5.685360416385143,
+          "stages_mean": 0.6093023255813953,
+          "rel_ece": 0.06857042772236593,
+          "rel_brier": 0.17696277679422956,
+          "rel_auroc_error_detection": 0.7336962197159566,
+          "rel_auprc_error_detection": 0.5455146733911735,
+          "rel_aurc": 0.1556763873992105,
+          "rel_error_rate": 0.2930232558139535,
+          "rel_n": 430.0,
+          "rel_calibrated_fraction": 1.0,
+          "rel_verifier_coverage": 1.0,
+          "rel_verifier_accuracy": 0.7372093023255814,
+          "rel_verifier_false_pass_rate": 0.873015873015873,
+          "rel_verifier_false_fail_rate": 0.009868421052631578
+        }
+      },
+      "metrics": {
+        "accuracy": {
+          "mean": 0.7651162790697674,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "calls_mean": {
+          "mean": 8.046511627906977,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "corrected_rate": {
+          "mean": 0.6065573770491803,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_mean": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_total": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_cost_share": {
+          "mean": 0.4142705699753726,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_latency_mean_s": {
+          "mean": 5.685360416385143,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_precision": {
+          "mean": 0.30049261083743845,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_rate": {
+          "mean": 0.4720930232558139,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_recall": {
+          "mean": 0.48412698412698413,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_success_rate": {
+          "mean": 0.8226600985221675,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "exact_match": {
+          "mean": 0.7627906976744186,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "extraction_failure_rate": {
+          "mean": 0.013953488372093023,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "f1": {
+          "mean": 0.7692118863049096,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "harmed_rate": {
+          "mean": 0.08450704225352113,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "incorrect_small_model_rate": {
+          "mean": 0.08837209302325581,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_accuracy": {
+          "mean": 0.7069767441860465,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_correct_broken": {
+          "mean": 0.039473684210526314,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_errors_corrected": {
+          "mean": 0.29365079365079366,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "input_tokens_mean": {
+          "mean": 1736.1627906976744,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_mean_s": {
+          "mean": 13.293390674713896,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p50_s": {
+          "mean": 13.93202513000142,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p95_s": {
+          "mean": 28.63756808169728,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_category": {
+          "mean": 0.7630092592592593,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_language": {
+          "mean": 0.7379824561403509,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "oracle_accuracy": {
+          "mean": 0.8488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "output_tokens_mean": {
+          "mean": 894.753488372093,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auprc_error_detection": {
+          "mean": 0.5455146733911735,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_aurc": {
+          "mean": 0.1556763873992105,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auroc_error_detection": {
+          "mean": 0.7336962197159566,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_brier": {
+          "mean": 0.17696277679422956,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_calibrated_fraction": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_ece": {
+          "mean": 0.06857042772236593,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_error_rate": {
+          "mean": 0.2930232558139535,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_accuracy": {
+          "mean": 0.7372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_coverage": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_fail_rate": {
+          "mean": 0.009868421052631578,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_pass_rate": {
+          "mean": 0.873015873015873,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "routing_accuracy": {
+          "mean": 0.3,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_0": {
+          "mean": 0.1372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_1": {
+          "mean": 0.33488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_2": {
+          "mean": 0.5279069767441861,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "stages_mean": {
+          "mean": 0.6093023255813953,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "text_f1": {
+          "mean": 0.292037037037037,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tflops_mean": {
+          "mean": 31.665372786046515,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "throughput_qps": {
+          "mean": 0.07522535254321203,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tokens_total": {
+          "mean": 1131294.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "unnecessary_large_model_rate": {
+          "mean": 0.6186046511627907,
+          "std": 0.0,
+          "n": 1.0
+        }
+      },
+      "by_language": {
+        "en": {
+          "accuracy": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.46842105263157896,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.7526315789473684,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.7671637426900585,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.6684210526315789,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7874579124579125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.517990278572756,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.18536062029619588,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.6879765029371329,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.2125159339062607,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.11009745213696465,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.3315789473684211,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.6894736842105263,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.015748031496062992,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9047619047619048,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "fa": {
+          "accuracy": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.2,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.38095238095238093,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.8950715950715951,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.4508981605769532,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.8035714285714286,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.22835607288999707,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.225850615382388,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.7,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.5,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7142857142857143,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "kk": {
+          "accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7916666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.48307692307692307,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.09748022955537776,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.7675,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.12096551707069,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.04932349701580458,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.19999999999999996,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.82,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "pes_Arab": {
+          "accuracy": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.66,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.35919413919413923,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.16149096981409528,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.6798336798336799,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.18846156463397673,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.09607435151247866,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.26,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "prs_Arab": {
+          "accuracy": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.05537570466169538,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.7222222222222221,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.08375866414618777,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.10652173913043463,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.09999999999999998,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "ru": {
+          "accuracy": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.54,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.01,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.76,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7823809523809524,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.5728600699982279,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.14522186820457159,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.7606907894736842,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.1400231775337216,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.07261355701155044,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.24,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.013157894736842105,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7916666666666666,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "by_category": {
+        "classification": {
+          "accuracy": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.77,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8099999999999999,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "coding": {
+          "accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 30.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.9666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "factual_qa": {
+          "accuracy": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.375,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4133487654320988,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3194444444444444,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4069264069264069,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 72.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.4583333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "math": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 60.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "reading_comprehension": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.008333333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.725,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 120.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.65,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "science": {
+          "accuracy": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7314814814814815,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 48.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.20833333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "acceptance_by_model": {
+        "qwen3-0.6b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-1.7b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-8b": {
+          "acceptance_rate": {
+            "mean": 0.6960352422907489,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": 0.13924050632911392,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n_accepted": {
+            "mean": 158.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        }
+      }
+    },
+    "routeguard": {
+      "group": "routeguard",
+      "fixed_model": null,
+      "per_seed": {
+        "0": {
+          "accuracy": 0.7651162790697674,
+          "initial_accuracy": 0.7069767441860465,
+          "exact_match": 0.7627906976744186,
+          "f1": 0.7692118863049096,
+          "text_f1": 0.292037037037037,
+          "macro_accuracy_language": 0.7379824561403509,
+          "macro_accuracy_category": 0.7630092592592593,
+          "extraction_failure_rate": 0.013953488372093023,
+          "n": 430.0,
+          "latency_mean_s": 3.15638596982445,
+          "latency_p50_s": 3.108028792499681,
+          "latency_p95_s": 5.606610430499131,
+          "input_tokens_mean": 347.2325581395349,
+          "output_tokens_mean": 178.50697674418603,
+          "tokens_total": 226068.0,
+          "cost_usd_mean": 0.0,
+          "cost_usd_total": 0.0,
+          "tflops_mean": 6.330395339534884,
+          "calls_mean": 1.6093023255813954,
+          "throughput_qps": 0.31681803479047194,
+          "routing_accuracy": 0.3,
+          "unnecessary_large_model_rate": 0.6186046511627907,
+          "incorrect_small_model_rate": 0.08837209302325581,
+          "oracle_accuracy": 0.8488372093023255,
+          "share_tier_0": 0.1372093023255814,
+          "share_tier_1": 0.33488372093023255,
+          "share_tier_2": 0.5279069767441861,
+          "escalation_rate": 0.4720930232558139,
+          "escalation_success_rate": 0.8226600985221675,
+          "escalation_precision": 0.30049261083743845,
+          "escalation_recall": 0.48412698412698413,
+          "corrected_rate": 0.6065573770491803,
+          "harmed_rate": 0.08450704225352113,
+          "initial_errors_corrected": 0.29365079365079366,
+          "initial_correct_broken": 0.039473684210526314,
+          "escalation_cost_share": 0.4165958574417203,
+          "escalation_latency_mean_s": 1.4385605909604555,
+          "stages_mean": 0.6093023255813953,
+          "rel_ece": 0.097853186285938,
+          "rel_brier": 0.20889863738601175,
+          "rel_auroc_error_detection": 0.5823673767752715,
+          "rel_auprc_error_detection": 0.38243041695562996,
+          "rel_aurc": 0.21914033112882955,
+          "rel_error_rate": 0.2930232558139535,
+          "rel_n": 430.0,
+          "rel_calibrated_fraction": 1.0,
+          "rel_verifier_coverage": 1.0,
+          "rel_verifier_accuracy": 0.7372093023255814,
+          "rel_verifier_false_pass_rate": 0.873015873015873,
+          "rel_verifier_false_fail_rate": 0.009868421052631578
+        }
+      },
+      "metrics": {
+        "accuracy": {
+          "mean": 0.7651162790697674,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "calls_mean": {
+          "mean": 1.6093023255813954,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "corrected_rate": {
+          "mean": 0.6065573770491803,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_mean": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "cost_usd_total": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_cost_share": {
+          "mean": 0.4165958574417203,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_latency_mean_s": {
+          "mean": 1.4385605909604555,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_precision": {
+          "mean": 0.30049261083743845,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_rate": {
+          "mean": 0.4720930232558139,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_recall": {
+          "mean": 0.48412698412698413,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "escalation_success_rate": {
+          "mean": 0.8226600985221675,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "exact_match": {
+          "mean": 0.7627906976744186,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "extraction_failure_rate": {
+          "mean": 0.013953488372093023,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "f1": {
+          "mean": 0.7692118863049096,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "harmed_rate": {
+          "mean": 0.08450704225352113,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "incorrect_small_model_rate": {
+          "mean": 0.08837209302325581,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_accuracy": {
+          "mean": 0.7069767441860465,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_correct_broken": {
+          "mean": 0.039473684210526314,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "initial_errors_corrected": {
+          "mean": 0.29365079365079366,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "input_tokens_mean": {
+          "mean": 347.2325581395349,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_mean_s": {
+          "mean": 3.15638596982445,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p50_s": {
+          "mean": 3.108028792499681,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "latency_p95_s": {
+          "mean": 5.606610430499131,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_category": {
+          "mean": 0.7630092592592593,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "macro_accuracy_language": {
+          "mean": 0.7379824561403509,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "oracle_accuracy": {
+          "mean": 0.8488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "output_tokens_mean": {
+          "mean": 178.50697674418603,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auprc_error_detection": {
+          "mean": 0.38243041695562996,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_aurc": {
+          "mean": 0.21914033112882955,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_auroc_error_detection": {
+          "mean": 0.5823673767752715,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_brier": {
+          "mean": 0.20889863738601175,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_calibrated_fraction": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_ece": {
+          "mean": 0.097853186285938,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_error_rate": {
+          "mean": 0.2930232558139535,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_n": {
+          "mean": 430.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_accuracy": {
+          "mean": 0.7372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_coverage": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_fail_rate": {
+          "mean": 0.009868421052631578,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "rel_verifier_false_pass_rate": {
+          "mean": 0.873015873015873,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "routing_accuracy": {
+          "mean": 0.3,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_0": {
+          "mean": 0.1372093023255814,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_1": {
+          "mean": 0.33488372093023255,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "share_tier_2": {
+          "mean": 0.5279069767441861,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "stages_mean": {
+          "mean": 0.6093023255813953,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "text_f1": {
+          "mean": 0.292037037037037,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tflops_mean": {
+          "mean": 6.330395339534884,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "throughput_qps": {
+          "mean": 0.31681803479047194,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "tokens_total": {
+          "mean": 226068.0,
+          "std": 0.0,
+          "n": 1.0
+        },
+        "unnecessary_large_model_rate": {
+          "mean": 0.6186046511627907,
+          "std": 0.0,
+          "n": 1.0
+        }
+      },
+      "by_language": {
+        "en": {
+          "accuracy": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.46842105263157896,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.7526315789473684,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.7671637426900585,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.6684210526315789,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7874579124579125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7578947368421053,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.48864926969151323,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.2281189264806861,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.6180477440319959,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.21921564702294946,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.11280096645660163,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.3315789473684211,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 190.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.6894736842105263,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.015748031496062992,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9047619047619048,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "fa": {
+          "accuracy": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.2,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.38095238095238093,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.7311507936507936,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.6683460598998523,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.4821428571428571,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.35783417310229826,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.37748461095998614,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.7,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.5,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7142857142857143,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "kk": {
+          "accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.02,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7916666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.21307899090157156,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.13953086736954143,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.5337500000000001,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.17701285683843543,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.07407597957597958,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.19999999999999996,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.82,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "pes_Arab": {
+          "accuracy": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.66,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.84,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.31536537139399395,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.19341665480273684,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.5997920997920998,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.19862336618145204,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.09328096637254213,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.26,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 50.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.74,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "prs_Arab": {
+          "accuracy": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.85,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.0804093567251462,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.17388110857151107,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.20833333333333337,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.16847057282135075,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.29737191828237836,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.09999999999999998,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 20.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.9,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "ru": {
+          "accuracy": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "escalation_rate": {
+            "mean": 0.54,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.01,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.76,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "language_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.7823809523809524,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.78,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auprc_error_detection": {
+            "mean": 0.2527240198514512,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_aurc": {
+            "mean": 0.18035954990251077,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_auroc_error_detection": {
+            "mean": 0.5466008771929824,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_brier": {
+            "mean": 0.188675350721573,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_calibrated_fraction": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_ece": {
+            "mean": 0.10823905019945496,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_error_rate": {
+            "mean": 0.24,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_accuracy": {
+            "mean": 0.8,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_coverage": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_fail_rate": {
+            "mean": 0.013157894736842105,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "rel_verifier_false_pass_rate": {
+            "mean": 0.7916666666666666,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "by_category": {
+        "classification": {
+          "accuracy": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.77,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.81,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8099999999999999,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 100.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "coding": {
+          "accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 30.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.9666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "factual_qa": {
+          "accuracy": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.375,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.4133487654320988,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.3194444444444444,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.3888888888888889,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.4069264069264069,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 72.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.4583333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": 0.292037037037037,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "math": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 60.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 1.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "reading_comprehension": {
+          "accuracy": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.008333333333333333,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.725,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.8666666666666667,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 120.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.65,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        },
+        "science": {
+          "accuracy": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "exact_match": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "extraction_failure_rate": {
+            "mean": 0.041666666666666664,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "f1": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "initial_accuracy": {
+            "mean": 0.8333333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_category": {
+            "mean": 0.8125,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "macro_accuracy_language": {
+            "mean": 0.7314814814814815,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "n": {
+            "mean": 48.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "task_id_accuracy": {
+            "mean": 0.20833333333333334,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "text_f1": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          }
+        }
+      },
+      "acceptance_by_model": {
+        "qwen3-0.6b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-1.7b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        },
+        "qwen3-8b": {
+          "acceptance_rate": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          },
+          "accepted_error_rate": {
+            "mean": NaN,
+            "std": NaN,
+            "n": 0.0
+          },
+          "n_accepted": {
+            "mean": 0.0,
+            "std": 0.0,
+            "n": 1.0
+          }
+        }
+      }
+    }
+  },
+  "paired_vs_reference": {
+    "conf_self_consistency": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value": 1.0,
+      "n": 430.0,
+      "mcnemar_p": 1.0
+    },
+    "conf_semantic_entropy": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value": 1.0,
+      "n": 430.0,
+      "mcnemar_p": 1.0
+    }
+  },
+  "errors": {
+    "taxonomy": {
+      "incorrect_routing": "final answer wrong; the routed model was wrong but a stronger model was right, and escalation did not recover",
+      "model_capability_failure": "no model in the pool answered correctly (reasoning/knowledge limit)",
+      "extraction_failure": "no answer could be parsed from the final response",
+      "high_confidence_wrong": "initial answer wrong, its confidence was above the acceptance threshold, and the verifier did not reject it",
+      "low_confidence_correct": "initial answer correct but flagged as low-confidence (unnecessary escalation)",
+      "verifier_false_pass": "a verifier accepted a wrong final answer",
+      "verifier_false_fail": "a verifier rejected a correct initial answer",
+      "escalation_failure": "escalated, still wrong, although some model in the pool was correct",
+      "escalation_harm": "initial answer correct, final answer wrong after escalation",
+      "language_related_failure": "wrong in a non-English language while the English parallel item was answered correctly by the same system and seed",
+      "retrieval_failure": "retrieval stage ran but no retrieved passage contained the gold answer",
+      "unsupported_answer": "answer produced after retrieval failed (answer without evidence)"
+    },
+    "per_system": {
+      "conf_self_consistency": {
+        "low_confidence_correct": 168,
+        "model_capability_failure": 65,
+        "verifier_false_pass": 81,
+        "escalation_harm": 12,
+        "escalation_failure": 18,
+        "high_confidence_wrong": 22,
+        "extraction_failure": 6,
+        "language_related_failure": 28,
+        "verifier_false_fail": 3
+      },
+      "conf_semantic_entropy": {
+        "low_confidence_correct": 168,
+        "model_capability_failure": 65,
+        "verifier_false_pass": 81,
+        "escalation_harm": 12,
+        "escalation_failure": 18,
+        "high_confidence_wrong": 22,
+        "extraction_failure": 6,
+        "language_related_failure": 28,
+        "verifier_false_fail": 3
+      },
+      "routeguard": {
+        "low_confidence_correct": 304,
+        "model_capability_failure": 65,
+        "verifier_false_pass": 81,
+        "escalation_harm": 12,
+        "escalation_failure": 18,
+        "extraction_failure": 6,
+        "language_related_failure": 28,
+        "verifier_false_fail": 3
+      }
+    },
+    "per_language": {
+      "en": {
+        "low_confidence_correct": 273,
+        "model_capability_failure": 111,
+        "verifier_false_pass": 111,
+        "escalation_harm": 12,
+        "escalation_failure": 18,
+        "high_confidence_wrong": 26,
+        "verifier_false_fail": 6
+      },
+      "ru": {
+        "low_confidence_correct": 166,
+        "model_capability_failure": 27,
+        "verifier_false_pass": 51,
+        "escalation_failure": 21,
+        "escalation_harm": 9,
+        "language_related_failure": 36,
+        "high_confidence_wrong": 6,
+        "extraction_failure": 3,
+        "verifier_false_fail": 3
+      },
+      "kk": {
+        "low_confidence_correct": 52,
+        "extraction_failure": 3,
+        "language_related_failure": 18,
+        "model_capability_failure": 18,
+        "high_confidence_wrong": 6,
+        "verifier_false_pass": 27
+      },
+      "pes_Arab": {
+        "low_confidence_correct": 83,
+        "model_capability_failure": 15,
+        "language_related_failure": 9,
+        "verifier_false_pass": 21,
+        "escalation_harm": 9,
+        "escalation_failure": 9,
+        "high_confidence_wrong": 2
+      },
+      "fa": {
+        "low_confidence_correct": 12,
+        "high_confidence_wrong": 4,
+        "verifier_false_pass": 24,
+        "model_capability_failure": 18,
+        "language_related_failure": 18,
+        "escalation_harm": 3,
+        "escalation_failure": 3,
+        "extraction_failure": 12
+      },
+      "prs_Arab": {
+        "low_confidence_correct": 54,
+        "model_capability_failure": 6,
+        "verifier_false_pass": 9,
+        "escalation_harm": 3,
+        "escalation_failure": 3,
+        "language_related_failure": 3
+      }
+    },
+    "n_records": {
+      "conf_self_consistency": 430,
+      "conf_semantic_entropy": 430,
+      "routeguard": 430
+    },
+    "n_wrong": {
+      "conf_self_consistency": 101,
+      "conf_semantic_entropy": 101,
+      "routeguard": 101
+    }
+  }
+}

@@ -1,0 +1,7 @@
+**Escalation behaviour (systems that escalate).**
+
+| System | Escalation rate (%) | Precision (%) | Recall (%) | Initial errors corrected (%) | Initially-correct broken (%) | Escalation cost share (%) |
+|---|---:|---:|---:|---:|---:|---:|
+| conf_self_consistency | 47.2 | 30.0 | 48.4 | 29.4 | 3.9 | 41.4 |
+| conf_semantic_entropy | 47.2 | 30.0 | 48.4 | 29.4 | 3.9 | 41.4 |
+| routeguard | 47.2 | 30.0 | 48.4 | 29.4 | 3.9 | 41.7 |

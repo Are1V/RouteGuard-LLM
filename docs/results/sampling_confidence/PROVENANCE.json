@@ -1,0 +1,47 @@
+{
+  "run_id": "sampling_confidence_20260919-194329_nogit",
+  "git": {
+    "commit": null,
+    "dirty": null
+  },
+  "seeds": [
+    0
+  ],
+  "data_fingerprint": "464250357b2fcc19",
+  "data": {
+    "n_items": 1075,
+    "by_source": {
+      "belebele": 300,
+      "sib200": 250,
+      "global_mmlu": 150,
+      "mgsm": 150,
+      "mbpp": 75,
+      "nq_open": 75,
+      "arc-challenge": 75
+    },
+    "by_language": {
+      "en": 475,
+      "kk": 125,
+      "ru": 250,
+      "pes_Arab": 125,
+      "prs_Arab": 50,
+      "fa": 50
+    },
+    "by_category": {
+      "reading_comprehension": 300,
+      "classification": 250,
+      "factual_qa": 186,
+      "science": 114,
+      "math": 150,
+      "coding": 75
+    }
+  },
+  "simulated": false,
+  "started": "2026-09-19T19:43:29+0500",
+  "finished": "2026-09-19T21:33:50+0500",
+  "models": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-8B"
+  ]
+}

@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Tool-use failure rates per model (share of cases).}
+\label{tab:tool_use}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Model & n & Accuracy & missing\_required\_call & unnecessary\_call & wrong\_tool & malformed\_arguments & ignored\_result & contradicted\_result & fabricated\_result \\
+\midrule
+qwen3-0.6b & 10 & 0.400 & 0.700 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+qwen3-1.7b & 10 & 0.900 & 0.000 & 0.100 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+qwen3-8b & 10 & 1.000 & 0.100 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.600 \\
+\bottomrule
+\end{tabular}
+\end{table}

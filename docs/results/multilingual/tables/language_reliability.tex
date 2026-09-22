@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Error-detection AUROC of initial confidence, by language. Mean $\pm$ std over 3 seeds.}
+\label{tab:language_reliability}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & en & fa & kk & pes\_Arab & prs\_Arab & ru \\
+\midrule
+always\_large & 0.584 $\pm$ 0.035 & 0.604 $\pm$ 0.046 & 0.525 $\pm$ 0.021 & 0.554 $\pm$ 0.069 & 0.711 $\pm$ 0.011 & 0.706 $\pm$ 0.040 \\
+always\_small & 0.703 $\pm$ 0.011 & 0.360 $\pm$ 0.073 & 0.537 $\pm$ 0.028 & 0.648 $\pm$ 0.065 & 0.703 $\pm$ 0.101 & 0.610 $\pm$ 0.016 \\
+oracle & 0.894 $\pm$ 0.016 & 0.634 $\pm$ 0.111 & 0.578 $\pm$ 0.056 & 0.748 $\pm$ 0.084 & 0.884 $\pm$ 0.024 & 0.767 $\pm$ 0.079 \\
+routeguard\_english\_trained & 0.575 $\pm$ 0.041 & 0.556 $\pm$ 0.017 & 0.544 $\pm$ 0.078 & 0.662 $\pm$ 0.064 & 0.705 $\pm$ 0.102 & 0.618 $\pm$ 0.015 \\
+routeguard\_per\_language\_calibration & 0.581 $\pm$ 0.054 & 0.672 $\pm$ 0.063 & 0.484 $\pm$ 0.041 & 0.619 $\pm$ 0.018 & 0.560 $\pm$ 0.055 & 0.716 $\pm$ 0.050 \\
+routeguard & 0.571 $\pm$ 0.040 & 0.610 $\pm$ 0.026 & 0.518 $\pm$ 0.044 & 0.574 $\pm$ 0.070 & 0.535 $\pm$ 0.052 & 0.692 $\pm$ 0.077 \\
+\bottomrule
+\end{tabular}
+\end{table}

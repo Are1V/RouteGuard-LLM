@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Cost and latency. Mean $\pm$ std over 3 seeds.}
+\label{tab:efficiency}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Input tok./query & Output tok./query & Compute/query (TFLOPs) & Latency p50 (s) & Latency p95 (s) & Calls/query \\
+\midrule
+always\_large & 215.0 $\pm$ 1.8 & 131.8 $\pm$ 0.8 & 5.682 $\pm$ 0.040 & 2.926 $\pm$ 0.035 & 4.686 $\pm$ 0.172 & 1.00 $\pm$ 0.00 \\
+always\_medium & 215.0 $\pm$ 1.8 & 94.8 $\pm$ 2.8 & 1.066 $\pm$ 0.007 & 0.907 $\pm$ 0.068 & 1.895 $\pm$ 0.235 & 1.00 $\pm$ 0.00 \\
+always\_small & 215.0 $\pm$ 1.8 & 44.5 $\pm$ 0.4 & 0.309 $\pm$ 0.002 & 0.324 $\pm$ 0.021 & 1.112 $\pm$ 0.000 & 1.00 $\pm$ 0.00 \\
+cascade & 625.5 $\pm$ 30.3 & 258.2 $\pm$ 22.7 & 6.526 $\pm$ 0.897 & 4.138 $\pm$ 0.956 & 7.488 $\pm$ 0.684 & 2.91 $\pm$ 0.16 \\
+difficulty\_threshold & 215.0 $\pm$ 1.8 & 83.9 $\pm$ 1.5 & 1.639 $\pm$ 0.053 & 0.842 $\pm$ 0.089 & 3.199 $\pm$ 0.100 & 1.00 $\pm$ 0.00 \\
+learned\_router & 215.0 $\pm$ 1.8 & 55.6 $\pm$ 3.2 & 0.741 $\pm$ 0.080 & 0.412 $\pm$ 0.030 & 1.793 $\pm$ 0.492 & 1.00 $\pm$ 0.00 \\
+oracle & 215.0 $\pm$ 1.8 & 72.7 $\pm$ 1.5 & 1.320 $\pm$ 0.017 & 0.602 $\pm$ 0.027 & 3.420 $\pm$ 0.184 & 1.00 $\pm$ 0.00 \\
+random & 215.0 $\pm$ 1.8 & 89.0 $\pm$ 3.2 & 2.300 $\pm$ 0.075 & 0.960 $\pm$ 0.021 & 3.965 $\pm$ 0.000 & 1.00 $\pm$ 0.00 \\
+routeguard & 335.9 $\pm$ 23.4 & 175.2 $\pm$ 9.2 & 5.951 $\pm$ 0.504 & 3.217 $\pm$ 0.358 & 5.645 $\pm$ 0.073 & 1.62 $\pm$ 0.11 \\
+rule\_based & 215.0 $\pm$ 1.8 & 82.4 $\pm$ 1.9 & 1.596 $\pm$ 0.057 & 0.727 $\pm$ 0.055 & 3.199 $\pm$ 0.100 & 1.00 $\pm$ 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

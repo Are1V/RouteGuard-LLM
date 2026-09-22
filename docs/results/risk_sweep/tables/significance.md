@@ -1,0 +1,17 @@
+**Paired accuracy difference vs routeguard_a0.15 (pooled over seeds; bootstrap CI and exact McNemar test).**
+
+| System | Δ acc. (pp) | 95% CI (pp) | Bootstrap p | McNemar p | n |
+|---|---:|---:|---:|---:|---:|
+| always_large | -0.2 | [-0.6, +0.3] | 0.534 | 0.585 | 2580 |
+| always_medium | -14.0 | [-15.7, -12.3] | 0 | 4.91e-59 | 2580 |
+| always_small | -32.8 | [-34.8, -30.7] | 0 | 2.18e-178 | 2580 |
+| cascade_a0.25 | -2.0 | [-2.8, -1.2] | 0 | 2.67e-06 | 2580 |
+| cascade_a0.35 | -11.2 | [-12.9, -9.7] | 0 | 1.99e-42 | 2580 |
+| cascade_a0.5 | -24.9 | [-26.9, -22.9] | 0 | 3.05e-124 | 2580 |
+| oracle | +5.9 | [+5.0, +6.8] | 0 | 3.5e-46 | 2580 |
+| routeguard_a0.25 | -1.3 | [-1.8, -0.8] | 0 | 1.03e-07 | 2580 |
+| routeguard_a0.35 | -6.0 | [-7.1, -4.9] | 0 | 1.07e-26 | 2580 |
+| routeguard_a0.5 | -7.2 | [-8.4, -6.0] | 0 | 3.69e-32 | 2580 |
+| routeguard_conditional_a0.15 | +0.3 | [+0.0, +0.6] | 0.052 | 0.0768 | 2580 |
+| routeguard_conditional_a0.25 | -3.8 | [-4.7, -2.9] | 0 | 4.18e-18 | 2580 |
+| routeguard_conditional_a0.35 | -6.5 | [-7.6, -5.3] | 0 | 1.92e-29 | 2580 |

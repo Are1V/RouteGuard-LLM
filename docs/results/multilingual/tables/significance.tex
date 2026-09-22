@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Paired accuracy difference vs routeguard (pooled over seeds; bootstrap CI and exact McNemar test).}
+\label{tab:significance}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Δ acc. (pp) & 95\% CI (pp) & Bootstrap p & McNemar p & n \\
+\midrule
+always\_large & -0.2 & [-0.6, +0.3] & 0.534 & 0.585 & 2580 \\
+always\_small & -32.8 & [-34.8, -30.7] & 0 & 2.18e-178 & 2580 \\
+oracle & +5.9 & [+5.0, +6.8] & 0 & 3.5e-46 & 2580 \\
+routeguard\_english\_trained & +0.3 & [-0.2, +0.7] & 0.281 & 0.311 & 2580 \\
+routeguard\_per\_language\_calibration & -0.5 & [-0.8, -0.2] & 0.0064 & 0.0118 & 2580 \\
+\bottomrule
+\end{tabular}
+\end{table}

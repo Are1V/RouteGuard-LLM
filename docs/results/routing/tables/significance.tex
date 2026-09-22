@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Paired accuracy difference vs cost\_aware\_t0.7 (pooled over seeds; bootstrap CI and exact McNemar test).}
+\label{tab:significance}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Δ acc. (pp) & 95\% CI (pp) & Bootstrap p & McNemar p & n \\
+\midrule
+always\_large & +8.4 & [+7.1, +9.8] & 0 & 6.98e-36 & 2580 \\
+always\_medium & -5.4 & [-6.8, -4.0] & 0 & 2.24e-13 & 2580 \\
+always\_small & -24.1 & [-26.2, -22.1] & 0 & 1.05e-111 & 2580 \\
+cost\_aware\_t0.5 & -11.4 & [-12.9, -9.9] & 0 & 3.08e-47 & 2580 \\
+cost\_aware\_t0.85 & +5.4 & [+4.3, +6.6] & 0 & 1.26e-22 & 2580 \\
+learned\_router & -19.2 & [-21.1, -17.3] & 0 & 3.7e-84 & 2580 \\
+oracle & +14.5 & [+13.2, +15.8] & 0 & 5.2e-113 & 2580 \\
+quality\_cost\_l0.05 & +6.4 & [+5.2, +7.7] & 0 & 2.65e-23 & 2580 \\
+quality\_cost\_l0.2 & -1.5 & [-2.7, -0.3] & 0.0112 & 0.0122 & 2580 \\
+quality\_cost\_l0.5 & -7.0 & [-8.5, -5.6] & 0 & 8.48e-21 & 2580 \\
+random & -8.0 & [-9.8, -6.3] & 0 & 4.09e-20 & 2580 \\
+rule\_based & -10.3 & [-12.0, -8.6] & 0 & 1.42e-31 & 2580 \\
+threshold\_heuristic & -10.0 & [-11.7, -8.3] & 0 & 6.13e-30 & 2580 \\
+threshold\_learned & -17.3 & [-19.2, -15.4] & 0 & 1.45e-71 & 2580 \\
+threshold\_llm\_judge & -5.4 & [-6.8, -4.0] & 0 & 2.24e-13 & 2580 \\
+threshold\_neural & -17.5 & [-19.4, -15.7] & 0 & 1.92e-74 & 2580 \\
+\bottomrule
+\end{tabular}
+\end{table}

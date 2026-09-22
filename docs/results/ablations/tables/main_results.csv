@@ -1,0 +1,13 @@
+System,Group,Accuracy (%),Macro-acc. lang. (%),Compute/query (TFLOPs),Latency mean (s),Escalation rate (%)
+conf_entropy,ablation,80.5 ± 1.1,79.9 ± 1.0,5.951 ± 0.505,3.135 ± 0.298,50.8 ± 7.9
+conf_min_token_prob,ablation,80.9 ± 0.6,80.2 ± 0.8,6.258 ± 0.082,3.308 ± 0.038,55.5 ± 4.3
+conf_sequence_logprob,ablation,80.7 ± 0.9,80.0 ± 0.9,5.968 ± 0.475,3.141 ± 0.287,51.1 ± 7.4
+heuristic_difficulty,ablation,80.7 ± 0.9,80.1 ± 0.8,5.945 ± 0.506,3.132 ± 0.301,50.5 ± 7.8
+neural_difficulty,ablation,80.5 ± 1.2,80.1 ± 0.9,5.959 ± 0.535,3.147 ± 0.320,53.0 ± 7.4
+no_confidence,ablation,72.8 ± 0.6,73.0 ± 0.7,3.426 ± 0.126,1.736 ± 0.093,1.6 ± 0.8
+no_escalation,ablation,72.0 ± 1.1,72.7 ± 0.5,3.329 ± 0.165,1.682 ± 0.120,0.0 ± 0.0
+no_task_classification,ablation,81.2 ± 1.5,80.7 ± 2.7,5.084 ± 0.081,2.009 ± 0.067,50.5 ± 4.3
+no_verification,ablation,80.5 ± 1.1,80.0 ± 1.0,5.933 ± 0.535,3.122 ± 0.320,50.7 ± 8.0
+oracle_task_labels,analysis,80.6 ± 0.9,80.1 ± 1.6,6.339 ± 0.109,3.167 ± 0.058,63.5 ± 4.8
+routeguard,routeguard,80.6 ± 0.9,80.0 ± 0.9,5.951 ± 0.504,3.134 ± 0.300,50.9 ± 7.7
+uncalibrated_fixed_threshold,ablation,74.9 ± 0.3,75.4 ± 1.1,3.923 ± 0.126,1.979 ± 0.082,13.2 ± 1.1

@@ -1,0 +1,76 @@
+# Component ablations of RouteGuard on the core suite (reference: the full system).
+#   routeguard benchmark --config experiments/ablations/routeguard_ablations.yaml
+extends: ../baselines/main.yaml
+name: ablations
+description: Remove or swap one RouteGuard component at a time.
+report: {reference_system: routeguard}
+systems:
+  - name: routeguard
+    group: routeguard
+    overrides: &full
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.7}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}
+  - name: no_confidence
+    group: ablation
+    description: escalate only on verification failure
+    overrides:
+      <<: *full
+      confidence: {method: none, calibration: none}
+  - name: no_verification
+    group: ablation
+    overrides:
+      <<: *full
+      verification: {enabled: false}
+  - name: no_escalation
+    group: ablation
+    overrides:
+      <<: *full
+      escalation: {enabled: false}
+  - name: no_task_classification
+    group: ablation
+    description: generic prompts and no category features
+    overrides:
+      <<: *full
+      analyzer: {task_classifier: none}
+  - name: heuristic_difficulty
+    group: ablation
+    description: Baseline A difficulty feeding the same cost-aware router
+    overrides:
+      <<: *full
+      difficulty: {estimator: heuristic}
+  - name: neural_difficulty
+    group: ablation
+    description: Baseline C (MLP) difficulty
+    overrides:
+      <<: *full
+      difficulty: {estimator: neural}
+  - name: uncalibrated_fixed_threshold
+    group: ablation
+    description: raw confidence with a fixed 0.9 threshold instead of calibration + risk control
+    overrides:
+      <<: *full
+      confidence: {method: mean_token_prob, calibration: none}
+      escalation: {triggers: {confidence_below: 0.9, risk_control: null}}
+  - name: conf_sequence_logprob
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: sequence_logprob}
+  - name: conf_min_token_prob
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: min_token_prob}
+  - name: conf_entropy
+    group: ablation
+    overrides:
+      <<: *full
+      confidence: {method: entropy}
+  - name: oracle_task_labels
+    group: analysis
+    description: gold task categories (upper bound for task classification; not deployable)
+    overrides:
+      <<: *full
+      analyzer: {task_classifier: given}

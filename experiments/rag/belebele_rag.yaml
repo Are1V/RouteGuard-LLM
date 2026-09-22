@@ -1,0 +1,9 @@
+# Open-book retrieval over Belebele passages: questions are asked WITHOUT their passage; BM25
+# retrieves from all passages of the same language. Separates retrieval from generation failures.
+name: belebele_rag
+pipeline: {extends: ../../configs/local_hf.yaml}
+model: qwen3-1.7b
+data:
+  - {loader: belebele, limit: 150, options: {languages: [eng_Latn, kaz_Cyrl, rus_Cyrl, pes_Arab]}}
+k: 3
+same_language: true

@@ -1,0 +1,10 @@
+**Accuracy relative to the best cost-matched random mixture of the fixed-model systems (upper concave hull; per seed, then mean ± std). Positive = the system adds value beyond how much compute it spends. Mean ± std over 3 seeds.**
+
+| System | Group | Compute/query (TFLOPs) | Accuracy (%) | Gap vs mixture (pp) |
+|---|---:|---:|---:|---:|
+| always_large | baseline | 5.682 ± 0.040 | 80.5 ± 0.6 | 0.0 ± 0.0 |
+| always_small | baseline | 0.309 ± 0.002 | 47.9 ± 0.7 | 0.0 ± 0.0 |
+| oracle | oracle | 1.320 ± 0.017 | 86.5 ± 0.2 | 32.5 ± 0.5 |
+| routeguard_english_trained | ablation | 6.250 ± 0.754 | 80.9 ± 1.6 | 1.1 ± 0.2 |
+| routeguard_per_language_calibration | ablation | 5.715 ± 0.538 | 80.2 ± 0.7 | 0.9 ± 1.8 |
+| routeguard | routeguard | 5.951 ± 0.504 | 80.6 ± 0.9 | 0.8 ± 0.7 |

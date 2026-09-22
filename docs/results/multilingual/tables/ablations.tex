@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Ablations relative to routeguard. Mean $\pm$ std over 3 seeds.}
+\label{tab:ablations}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Accuracy (\%) & Δ acc. vs ref. (pp) & 95\% CI (pp) & Compute/query (TFLOPs) & Escalation rate (\%) \\
+\midrule
+routeguard & 80.6 $\pm$ 0.9 & 0.0 & -- & 5.951 $\pm$ 0.504 & 50.9 $\pm$ 7.7 \\
+routeguard\_english\_trained & 80.9 $\pm$ 1.6 & +0.3 & [-0.2, +0.7] & 6.250 $\pm$ 0.754 & 71.9 $\pm$ 8.3 \\
+routeguard\_per\_language\_calibration & 80.2 $\pm$ 0.7 & -0.5 & [-0.8, -0.2] & 5.715 $\pm$ 0.538 & 47.1 $\pm$ 6.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

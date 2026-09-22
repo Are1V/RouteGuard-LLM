@@ -1,0 +1,29 @@
+# Models served over the OpenAI chat-completions protocol: vLLM, llama.cpp (llama-server),
+# Ollama (/v1), LM Studio, or a hosted provider. Keys are read from environment variables
+# named in `api_key_env` (see .env.example); never put keys in this file.
+#
+#   vllm serve Qwen/Qwen3-1.7B --port 8001      # and similarly for the other models
+#   routeguard run --config configs/openai_compatible.yaml --query "..."
+extends: local_hf.yaml
+name: routeguard-openai-compatible
+models:
+  - name: local-small
+    backend: openai_compatible
+    model_id: Qwen/Qwen3-1.7B
+    params_b: 1.7
+    max_new_tokens: 512
+    options: {base_url: "http://localhost:8001/v1", extra_body: {chat_template_kwargs: {enable_thinking: false}}}
+  - name: local-large
+    backend: openai_compatible
+    model_id: Qwen/Qwen3-8B
+    params_b: 8.2
+    max_new_tokens: 512
+    options: {base_url: "http://localhost:8002/v1", extra_body: {chat_template_kwargs: {enable_thinking: false}}}
+  - name: hosted
+    backend: openai_compatible
+    model_id: your-provider-model-name
+    price_input_per_1k: 0.0          # fill in your provider's current prices to get USD costs
+    price_output_per_1k: 0.0
+    max_new_tokens: 512
+    options: {base_url: "https://api.example.com/v1", api_key_env: ROUTEGUARD_API_KEY}
+cache: {path: .routeguard_cache/openai_compatible.sqlite}

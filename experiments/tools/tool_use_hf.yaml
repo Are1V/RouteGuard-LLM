@@ -1,0 +1,6 @@
+# Tool-use failure analysis with real local models on the 10-case fixture
+# (a software-level probe, not a benchmark; see docs/benchmarks.md).
+name: tool_use_hf
+pipeline: {extends: ../../configs/local_hf.yaml}
+models: [qwen3-0.6b, qwen3-1.7b, qwen3-8b]
+cases: benchmarks/samples/tool_use.jsonl

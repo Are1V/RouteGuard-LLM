@@ -1,0 +1,7 @@
+**Error-detection AUROC of initial confidence, by language.**
+
+| System | en | fa | kk | pes_Arab | prs_Arab | ru |
+|---|---:|---:|---:|---:|---:|---:|
+| conf_self_consistency | 0.693 | 0.810 | 0.777 | 0.683 | 0.708 | 0.759 |
+| conf_semantic_entropy | 0.688 | 0.804 | 0.767 | 0.680 | 0.722 | 0.761 |
+| routeguard | 0.618 | 0.482 | 0.534 | 0.600 | 0.208 | 0.547 |

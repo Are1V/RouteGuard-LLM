@@ -1,0 +1,28 @@
+{
+  "run_id": "belebele_rag_20260919-165212_nogit",
+  "git": {
+    "commit": null,
+    "dirty": null
+  },
+  "seeds": null,
+  "data_fingerprint": null,
+  "data": {
+    "n_items": 600,
+    "by_source": {
+      "belebele": 600
+    },
+    "by_language": {
+      "en": 150,
+      "kk": 150,
+      "ru": 150,
+      "pes_Arab": 150
+    },
+    "by_category": {
+      "reading_comprehension": 600
+    }
+  },
+  "simulated": false,
+  "started": null,
+  "finished": null,
+  "models": null
+}

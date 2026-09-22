@@ -1,0 +1,14 @@
+{
+  "run_id": "tool_use_hf_20260919-192820_nogit",
+  "git": {
+    "commit": null,
+    "dirty": null
+  },
+  "seeds": null,
+  "data_fingerprint": null,
+  "data": null,
+  "simulated": false,
+  "started": null,
+  "finished": null,
+  "models": null
+}

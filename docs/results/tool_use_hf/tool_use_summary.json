@@ -1,0 +1,44 @@
+{
+  "qwen3-0.6b": {
+    "n": 10,
+    "accuracy": 0.4,
+    "failure_rates": {
+      "missing_required_call": 0.7,
+      "unnecessary_call": 0.0,
+      "wrong_tool": 0.0,
+      "malformed_arguments": 0.0,
+      "ignored_result": 0.0,
+      "contradicted_result": 0.0,
+      "fabricated_result": 0.0
+    },
+    "calls_mean": 0.0
+  },
+  "qwen3-1.7b": {
+    "n": 10,
+    "accuracy": 0.9,
+    "failure_rates": {
+      "missing_required_call": 0.0,
+      "unnecessary_call": 0.1,
+      "wrong_tool": 0.0,
+      "malformed_arguments": 0.0,
+      "ignored_result": 0.0,
+      "contradicted_result": 0.0,
+      "fabricated_result": 0.0
+    },
+    "calls_mean": 0.8
+  },
+  "qwen3-8b": {
+    "n": 10,
+    "accuracy": 1.0,
+    "failure_rates": {
+      "missing_required_call": 0.1,
+      "unnecessary_call": 0.0,
+      "wrong_tool": 0.0,
+      "malformed_arguments": 0.0,
+      "ignored_result": 0.0,
+      "contradicted_result": 0.0,
+      "fabricated_result": 0.6
+    },
+    "calls_mean": 0.6
+  }
+}

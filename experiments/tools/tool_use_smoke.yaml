@@ -1,0 +1,6 @@
+# Tool-use failure analysis on the 10-case fixture with the SIMULATED backend.
+# Swap `pipeline.extends` for configs/local_hf.yaml to evaluate real models.
+name: tool_use_smoke
+pipeline: {extends: ../../configs/demo.yaml, cache: {path: .routeguard_cache/tools.sqlite}}
+models: [small, large]
+cases: benchmarks/samples/tool_use.jsonl

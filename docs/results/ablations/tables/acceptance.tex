@@ -1,0 +1,33 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Realised risk of the acceptance rule: error rate among *accepted* initial answers, by the model that produced them. Compare with the target risk of risk-controlled systems. Mean $\pm$ std over 3 seeds.}
+\label{tab:acceptance}
+\begin{tabular}{lrrrr}
+\toprule
+System & Model & Acceptance rate (\%) & Accepted error rate (\%) & Accepted / seed \\
+\midrule
+conf\_entropy & qwen3-1.7b & 10.1 $\pm$ 17.4 & 20.0 & 42 $\pm$ 72 \\
+conf\_entropy & qwen3-8b & 3.1 $\pm$ 5.3 & 25.6 & 13 $\pm$ 23 \\
+conf\_sequence\_logprob & qwen3-1.7b & 9.4 $\pm$ 16.3 & 16.2 & 39 $\pm$ 68 \\
+conf\_sequence\_logprob & qwen3-8b & 6.5 $\pm$ 6.6 & 34.3 $\pm$ 3.0 & 26 $\pm$ 28 \\
+heuristic\_difficulty & qwen3-1.7b & 9.9 $\pm$ 17.2 & 16.4 & 41 $\pm$ 70 \\
+heuristic\_difficulty & qwen3-8b & 4.9 $\pm$ 4.4 & 28.1 $\pm$ 5.3 & 20 $\pm$ 19 \\
+neural\_difficulty & qwen3-1.7b & 10.1 $\pm$ 17.6 & 16.7 & 44 $\pm$ 76 \\
+neural\_difficulty & qwen3-8b & 4.9 $\pm$ 4.4 & 25.8 $\pm$ 2.1 & 18 $\pm$ 17 \\
+no\_escalation & qwen3-0.6b & 52.9 $\pm$ 10.2 & 24.0 $\pm$ 5.3 & 54 $\pm$ 19 \\
+no\_escalation & qwen3-1.7b & 99.2 $\pm$ 0.5 & 26.6 $\pm$ 1.8 & 373 $\pm$ 54 \\
+no\_escalation & qwen3-8b & 99.4 $\pm$ 0.5 & 27.0 $\pm$ 1.7 & 381 $\pm$ 39 \\
+no\_task\_classification & qwen3-1.7b & 2.0 $\pm$ 3.5 & 13.6 & 7 $\pm$ 13 \\
+no\_task\_classification & qwen3-8b & 19.9 $\pm$ 34.5 & 22.6 & 84 $\pm$ 145 \\
+no\_verification & qwen3-1.7b & 9.9 $\pm$ 17.2 & 16.3 & 41 $\pm$ 71 \\
+no\_verification & qwen3-8b & 5.0 $\pm$ 4.5 & 28.1 $\pm$ 5.3 & 20 $\pm$ 19 \\
+oracle\_task\_labels & qwen3-8b & 8.2 $\pm$ 9.1 & 29.6 $\pm$ 5.3 & 25 $\pm$ 30 \\
+routeguard & qwen3-1.7b & 9.9 $\pm$ 17.2 & 16.3 & 41 $\pm$ 71 \\
+routeguard & qwen3-8b & 5.0 $\pm$ 4.5 & 28.1 $\pm$ 5.3 & 20 $\pm$ 19 \\
+uncalibrated\_fixed\_threshold & qwen3-0.6b & 83.4 $\pm$ 5.9 & 27.9 $\pm$ 8.7 & 85 $\pm$ 23 \\
+uncalibrated\_fixed\_threshold & qwen3-1.7b & 77.0 $\pm$ 2.6 & 24.8 $\pm$ 1.7 & 290 $\pm$ 48 \\
+uncalibrated\_fixed\_threshold & qwen3-8b & 94.2 $\pm$ 0.6 & 25.4 $\pm$ 1.1 & 361 $\pm$ 36 \\
+\bottomrule
+\end{tabular}
+\end{table}

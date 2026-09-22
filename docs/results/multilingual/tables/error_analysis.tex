@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Failure labels per system (counts; an example can carry several labels).}
+\label{tab:error_analysis}
+\begin{tabular}{lrrrrrrrrrrrrr}
+\toprule
+System & Wrong & incorrect\_routing & model\_capability\_failure & extraction\_failure & high\_confidence\_wrong & low\_confidence\_correct & verifier\_false\_pass & verifier\_false\_fail & escalation\_failure & escalation\_harm & language\_related\_failure & retrieval\_failure & unsupported\_answer \\
+\midrule
+always\_large & 504 & 0 & 348 & 68 & 367 & 10 & 373 & 8 & 0 & 0 & 146 & 0 & 0 \\
+always\_small & 1345 & 997 & 348 & 5 & 573 & 418 & 1228 & 0 & 0 & 0 & 280 & 0 & 0 \\
+oracle & 348 & 0 & 348 & 1 & 96 & 424 & 306 & 5 & 0 & 0 & 94 & 0 & 0 \\
+routeguard\_english\_trained & 493 & 19 & 348 & 6 & 39 & 1476 & 395 & 1 & 95 & 61 & 139 & 0 & 0 \\
+routeguard\_per\_language\_calibration & 512 & 25 & 348 & 46 & 115 & 1275 & 395 & 5 & 59 & 39 & 146 & 0 & 0 \\
+routeguard & 500 & 12 & 348 & 46 & 28 & 1712 & 382 & 5 & 61 & 40 & 140 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

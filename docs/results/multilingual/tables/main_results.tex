@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Quality, reliability and cost of all systems (test split). Mean $\pm$ std over 3 seeds.}
+\label{tab:main_results}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Group & Accuracy (\%) & Macro-acc. lang. (\%) & Compute/query (TFLOPs) & Latency mean (s) & Escalation rate (\%) \\
+\midrule
+always\_large & baseline & 80.5 $\pm$ 0.6 & 79.3 $\pm$ 0.8 & 5.682 $\pm$ 0.040 & 2.757 $\pm$ 0.003 & 0.0 $\pm$ 0.0 \\
+always\_small & baseline & 47.9 $\pm$ 0.7 & 47.9 $\pm$ 1.1 & 0.309 $\pm$ 0.002 & 0.448 $\pm$ 0.016 & 0.0 $\pm$ 0.0 \\
+oracle & oracle & 86.5 $\pm$ 0.2 & 88.2 $\pm$ 0.6 & 1.320 $\pm$ 0.017 & 0.916 $\pm$ 0.034 & 0.0 $\pm$ 0.0 \\
+routeguard\_english\_trained & ablation & 80.9 $\pm$ 1.6 & 81.3 $\pm$ 1.5 & 6.250 $\pm$ 0.754 & 3.432 $\pm$ 0.381 & 71.9 $\pm$ 8.3 \\
+routeguard\_per\_language\_calibration & ablation & 80.2 $\pm$ 0.7 & 79.7 $\pm$ 0.8 & 5.715 $\pm$ 0.538 & 2.984 $\pm$ 0.284 & 47.1 $\pm$ 6.8 \\
+routeguard & routeguard & 80.6 $\pm$ 0.9 & 80.0 $\pm$ 0.9 & 5.951 $\pm$ 0.504 & 3.134 $\pm$ 0.300 & 50.9 $\pm$ 7.7 \\
+\bottomrule
+\end{tabular}
+\end{table}

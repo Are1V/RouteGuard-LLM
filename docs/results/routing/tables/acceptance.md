@@ -1,0 +1,44 @@
+**Realised risk of the acceptance rule: error rate among *accepted* initial answers, by the model that produced them. Compare with the target risk of risk-controlled systems. Mean ± std over 3 seeds.**
+
+| System | Model | Acceptance rate (%) | Accepted error rate (%) | Accepted / seed |
+|---|---:|---:|---:|---:|
+| always_large | qwen3-8b | 99.2 ± 0.7 | 19.3 ± 0.7 | 853 ± 6 |
+| always_medium | qwen3-1.7b | 98.6 ± 0.5 | 32.8 ± 1.1 | 848 ± 5 |
+| always_small | qwen3-0.6b | 55.7 ± 4.9 | 43.1 ± 1.0 | 479 ± 42 |
+| cost_aware_t0.5 | qwen3-0.6b | 55.8 ± 6.8 | 33.5 ± 1.7 | 211 ± 55 |
+| cost_aware_t0.5 | qwen3-1.7b | 99.6 ± 0.5 | 33.3 ± 0.9 | 351 ± 43 |
+| cost_aware_t0.5 | qwen3-8b | 99.5 ± 0.4 | 46.0 ± 2.8 | 133 ± 16 |
+| cost_aware_t0.7 | qwen3-0.6b | 52.9 ± 10.2 | 24.0 ± 5.3 | 54 ± 19 |
+| cost_aware_t0.7 | qwen3-1.7b | 99.2 ± 0.5 | 26.6 ± 1.8 | 373 ± 54 |
+| cost_aware_t0.7 | qwen3-8b | 99.4 ± 0.5 | 27.0 ± 1.7 | 381 ± 39 |
+| cost_aware_t0.85 | qwen3-0.6b | 69.0 ± 6.5 | 62.5 ± 21.7 | 8 ± 0 |
+| cost_aware_t0.85 | qwen3-1.7b | 99.4 ± 0.6 | 25.5 ± 4.2 | 192 ± 26 |
+| cost_aware_t0.85 | qwen3-8b | 99.2 ± 0.7 | 20.5 ± 0.6 | 650 ± 25 |
+| learned_router | qwen3-0.6b | 58.1 ± 7.1 | 39.4 ± 2.9 | 391 ± 52 |
+| learned_router | qwen3-1.7b | 99.5 ± 0.9 | 40.1 ± 8.2 | 97 ± 27 |
+| learned_router | qwen3-8b | 99.2 ± 0.7 | 58.2 ± 7.1 | 90 ± 15 |
+| quality_cost_l0.05 | qwen3-0.6b | 80.6 ± 21.7 | 63.1 ± 11.8 | 6 ± 4 |
+| quality_cost_l0.05 | qwen3-1.7b | 97.1 ± 1.3 | 36.2 ± 6.5 | 122 ± 41 |
+| quality_cost_l0.05 | qwen3-8b | 99.3 ± 0.6 | 18.0 ± 0.7 | 722 ± 41 |
+| quality_cost_l0.2 | qwen3-0.6b | 50.8 ± 17.2 | 61.2 ± 6.2 | 16 ± 5 |
+| quality_cost_l0.2 | qwen3-1.7b | 98.8 ± 0.5 | 30.9 ± 2.4 | 613 ± 34 |
+| quality_cost_l0.2 | qwen3-8b | 99.5 ± 0.5 | 17.6 ± 5.5 | 207 ± 34 |
+| quality_cost_l0.5 | qwen3-0.6b | 49.3 ± 12.6 | 59.4 ± 4.8 | 44 ± 12 |
+| quality_cost_l0.5 | qwen3-1.7b | 99.0 ± 0.5 | 31.1 ± 0.7 | 758 ± 22 |
+| quality_cost_l0.5 | qwen3-8b | 100.0 ± 0.0 | 42.9 ± 51.5 | 3 ± 3 |
+| random | qwen3-0.6b | 55.9 ± 3.2 | 43.3 ± 2.6 | 163 ± 16 |
+| random | qwen3-1.7b | 99.0 ± 0.3 | 34.3 ± 2.2 | 283 ± 9 |
+| random | qwen3-8b | 99.3 ± 0.7 | 19.3 ± 0.9 | 281 ± 2 |
+| rule_based | qwen3-0.6b | 64.2 ± 5.2 | 39.3 ± 1.8 | 236 ± 20 |
+| rule_based | qwen3-1.7b | 99.2 ± 0.7 | 29.5 ± 1.1 | 361 ± 4 |
+| rule_based | qwen3-8b | 99.5 ± 0.9 | 25.1 ± 2.4 | 128 ± 6 |
+| threshold_heuristic | qwen3-0.6b | 51.6 ± 5.7 | 31.8 ± 0.8 | 193 ± 22 |
+| threshold_heuristic | qwen3-1.7b | 99.7 ± 0.3 | 30.8 ± 1.3 | 356 ± 4 |
+| threshold_heuristic | qwen3-8b | 99.5 ± 0.8 | 25.8 ± 2.1 | 129 ± 5 |
+| threshold_learned | qwen3-0.6b | 57.5 ± 7.4 | 35.9 ± 0.3 | 323 ± 36 |
+| threshold_learned | qwen3-1.7b | 98.9 ± 0.5 | 42.0 ± 1.9 | 237 ± 13 |
+| threshold_learned | qwen3-8b | 98.8 ± 1.0 | 69.5 ± 2.0 | 57 ± 4 |
+| threshold_llm_judge | qwen3-1.7b | 98.6 ± 0.5 | 32.8 ± 1.1 | 848 ± 5 |
+| threshold_neural | qwen3-0.6b | 58.5 ± 6.5 | 37.2 ± 1.7 | 364 ± 41 |
+| threshold_neural | qwen3-1.7b | 99.5 ± 0.4 | 41.3 ± 4.1 | 137 ± 18 |
+| threshold_neural | qwen3-8b | 98.6 ± 1.2 | 55.3 ± 3.1 | 99 ± 13 |

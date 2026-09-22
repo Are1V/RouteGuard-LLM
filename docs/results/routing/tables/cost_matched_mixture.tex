@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Accuracy relative to the best cost-matched random mixture of the fixed-model systems (upper concave hull; per seed, then mean $\pm$ std). Positive = the system adds value beyond how much compute it spends. Mean $\pm$ std over 3 seeds.}
+\label{tab:cost_matched_mixture}
+\begin{tabular}{lrrrr}
+\toprule
+System & Group & Compute/query (TFLOPs) & Accuracy (\%) & Gap vs mixture (pp) \\
+\midrule
+always\_large & baseline & 5.682 $\pm$ 0.040 & 80.5 $\pm$ 0.6 & 0.0 $\pm$ 0.0 \\
+always\_medium & baseline & 1.066 $\pm$ 0.007 & 66.6 $\pm$ 1.0 & 0.0 $\pm$ 0.0 \\
+always\_small & baseline & 0.309 $\pm$ 0.002 & 47.9 $\pm$ 0.7 & 0.0 $\pm$ 0.0 \\
+cost\_aware\_t0.5 & routeguard & 1.443 $\pm$ 0.136 & 60.7 $\pm$ 1.1 & -7.1 $\pm$ 1.1 \\
+cost\_aware\_t0.7 & routeguard & 3.329 $\pm$ 0.165 & 72.0 $\pm$ 1.1 & -1.4 $\pm$ 0.5 \\
+cost\_aware\_t0.85 & routeguard & 4.776 $\pm$ 0.143 & 77.4 $\pm$ 0.7 & -0.3 $\pm$ 0.6 \\
+learned\_router & routeguard & 0.741 $\pm$ 0.080 & 52.8 $\pm$ 0.7 & -5.8 $\pm$ 2.0 \\
+oracle & oracle & 1.320 $\pm$ 0.017 & 86.5 $\pm$ 0.2 & 19.1 $\pm$ 1.2 \\
+quality\_cost\_l0.05 & routeguard & 5.065 $\pm$ 0.121 & 78.4 $\pm$ 0.6 & -0.2 $\pm$ 0.6 \\
+quality\_cost\_l0.2 & routeguard & 2.484 $\pm$ 0.200 & 70.5 $\pm$ 1.6 & -0.3 $\pm$ 0.5 \\
+quality\_cost\_l0.5 & routeguard & 0.996 $\pm$ 0.017 & 65.0 $\pm$ 1.6 & 0.1 $\pm$ 0.5 \\
+random & baseline & 2.300 $\pm$ 0.075 & 64.0 $\pm$ 0.1 & -6.3 $\pm$ 0.4 \\
+rule\_based & baseline & 1.596 $\pm$ 0.057 & 61.7 $\pm$ 0.6 & -6.5 $\pm$ 1.4 \\
+threshold\_heuristic & baseline & 1.639 $\pm$ 0.053 & 62.1 $\pm$ 0.3 & -6.3 $\pm$ 0.7 \\
+threshold\_learned & baseline & 0.697 $\pm$ 0.005 & 54.7 $\pm$ 0.4 & -2.7 $\pm$ 0.1 \\
+threshold\_llm\_judge & baseline & 1.207 $\pm$ 0.008 & 66.6 $\pm$ 1.0 & -0.4 $\pm$ 0.0 \\
+threshold\_neural & baseline & 0.917 $\pm$ 0.068 & 54.5 $\pm$ 0.8 & -8.5 $\pm$ 2.5 \\
+\bottomrule
+\end{tabular}
+\end{table}

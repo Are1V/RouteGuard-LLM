@@ -1,0 +1,13 @@
+**Paired accuracy difference vs routeguard (pooled over seeds; bootstrap CI and exact McNemar test).**
+
+| System | Δ acc. (pp) | 95% CI (pp) | Bootstrap p | McNemar p | n |
+|---|---:|---:|---:|---:|---:|
+| always_large | -0.2 | [-0.6, +0.3] | 0.534 | 0.585 | 2580 |
+| always_medium | -14.0 | [-15.7, -12.3] | 0 | 4.91e-59 | 2580 |
+| always_small | -32.8 | [-34.8, -30.7] | 0 | 2.18e-178 | 2580 |
+| cascade | +0.3 | [-0.2, +0.8] | 0.261 | 0.28 | 2580 |
+| difficulty_threshold | -18.6 | [-20.3, -16.8] | 0 | 1.24e-87 | 2580 |
+| learned_router | -27.8 | [-29.8, -25.9] | 0 | 5.7e-146 | 2580 |
+| oracle | +5.9 | [+5.0, +6.8] | 0 | 3.5e-46 | 2580 |
+| random | -16.6 | [-18.3, -15.0] | 0 | 1.85e-85 | 2580 |
+| rule_based | -18.9 | [-20.7, -17.1] | 0 | 3.25e-89 | 2580 |

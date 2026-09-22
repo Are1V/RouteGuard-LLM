@@ -1,0 +1,23 @@
+# RouteGuard core benchmark suite v0.1 (public datasets at pinned revisions; see docs/benchmarks.md).
+#
+# Language coverage (items per language after `limit`, applied per language):
+#   en: belebele, sib200, global_mmlu, mgsm, mbpp, nq_open, arc
+#   kk: belebele, sib200            ru: belebele, sib200, global_mmlu, mgsm
+#   fa (Iranian Persian, pes_Arab): belebele, sib200, global_mmlu
+#   fa (Dari, prs_Arab): sib200     (no public Dari QA benchmark was found; see docs/multilingual.md)
+#
+# GSM8K is deliberately NOT included: MGSM-en is a verbatim subset of the GSM8K test set, and using
+# both would place identical questions in different splits.
+data:
+  - {loader: belebele, name: belebele, limit: 150,
+     options: {languages: [eng_Latn, kaz_Cyrl, rus_Cyrl, pes_Arab]}}
+  - {loader: sib200, name: sib200, limit: 100,
+     options: {languages: [eng_Latn, kaz_Cyrl, rus_Cyrl, pes_Arab, prs_Arab]}}
+  - {loader: global_mmlu, name: global_mmlu, limit: 100, options: {languages: [en, ru, fa]}}
+  - {loader: mgsm, name: mgsm, limit: 150, options: {languages: [en, ru]}}
+  - {loader: mbpp, name: mbpp, limit: 150}
+  - {loader: nq_open, name: nq_open, limit: 150}
+  - {loader: arc, name: arc_challenge, limit: 150}
+
+splits: {train: 0.4, calibration: 0.2, test: 0.4, stratify_by: [source, language]}
+scoring: {text_match: contains, code_timeout_s: 10}

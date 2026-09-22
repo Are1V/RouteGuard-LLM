@@ -1,0 +1,10 @@
+{"id": "tool-mul", "question": "What is 4817 multiplied by 239?", "answer": "1151263", "required_tools": ["calculator"], "expected_calls": [{"name": "calculator", "arguments": {"expression": "4817*239"}}]}
+{"id": "tool-expr", "question": "Compute (1234 + 5678) * 3 - 999.", "answer": "19737", "required_tools": ["calculator"], "expected_calls": [{"name": "calculator", "arguments": {"expression": "(1234+5678)*3-999"}}]}
+{"id": "tool-div", "question": "What is 98765 divided by 5?", "answer": "19753", "required_tools": ["calculator"], "expected_calls": [{"name": "calculator", "arguments": {"expression": "98765/5"}}]}
+{"id": "tool-miles", "question": "How many metres are in 3 miles?", "answer": "4828.032", "required_tools": ["unit_convert"], "expected_calls": [{"name": "unit_convert", "arguments": {"value": 3, "from_unit": "mi", "to_unit": "m"}}]}
+{"id": "tool-temp", "question": "Convert 212 degrees Fahrenheit to Celsius.", "answer": "100", "required_tools": ["unit_convert"], "expected_calls": [{"name": "unit_convert", "arguments": {"value": 212, "from_unit": "f", "to_unit": "c"}}]}
+{"id": "tool-lb", "question": "How many grams are in 2.5 pounds?", "answer": "1133.980925", "required_tools": ["unit_convert"], "expected_calls": [{"name": "unit_convert", "arguments": {"value": 2.5, "from_unit": "lb", "to_unit": "g"}}]}
+{"id": "tool-none-1", "question": "What is 2 plus 2?", "answer": "4", "required_tools": []}
+{"id": "tool-none-2", "question": "How many days are in a week?", "answer": "7", "required_tools": []}
+{"id": "tool-none-3", "question": "How many sides does a triangle have?", "answer": "3", "required_tools": []}
+{"id": "tool-pow", "question": "What is 37 to the power of 4?", "answer": "1874161", "required_tools": ["calculator"], "expected_calls": [{"name": "calculator", "arguments": {"expression": "37**4"}}]}

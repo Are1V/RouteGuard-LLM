@@ -1,0 +1,320 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { Metric, formatNumber, formatPercent } from "@/components/metric";
+import { Bars, ScatterChart } from "@/components/simple-chart";
+import { EmptyState, ErrorState, PageHeader } from "@/components/shell";
+import { artifactUrl, getExperiment, getExperiments, getMetrics } from "@/lib/api";
+import type { ExperimentDetail, ExperimentMetrics, ExperimentSummary } from "@/lib/types";
+
+/** Figures worth showing inline; the rest stay available through the API. */
+const HEADLINE_FIGURES = [
+  "pareto_accuracy_vs_cost.png",
+  "pareto_accuracy_vs_latency.png",
+  "router_confusion_matrix.png",
+  "model_selection_distribution.png",
+  "reliability_diagram.png",
+  "calibration_by_model.png",
+  "cost_vs_escalation_rate.png",
+  "error_types.png",
+];
+
+function runLabel(run: ExperimentSummary) {
+  const timestamp = run.id.split("_").slice(-2).join(" ");
+  return run.name === run.id ? run.id : `${run.name} · ${timestamp}`;
+}
+
+export default function ExperimentsPage() {
+  const [runs, setRuns] = useState<ExperimentSummary[]>([]);
+  const [selected, setSelected] = useState("");
+  // Keyed by run id so a stale response can never be shown against another run.
+  const [loaded, setLoaded] = useState<{
+    runId: string;
+    metrics: ExperimentMetrics;
+    detail: ExperimentDetail;
+  } | null>(null);
+  const [error, setError] = useState<unknown>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    getExperiments(controller.signal)
+      .then(({ experiments }) => {
+        setRuns(experiments);
+        const withMetrics = experiments.filter((run) => run.has_metrics);
+        const preferred = withMetrics.find((run) => run.id.startsWith("main_")) ?? withMetrics[0];
+        setSelected(preferred?.id ?? "");
+        setError(null);
+      })
+      .catch((cause: unknown) => {
+        if (!controller.signal.aborted) setError(cause);
+      });
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    if (!selected) return;
+    const controller = new AbortController();
+    Promise.all([getMetrics(selected, controller.signal), getExperiment(selected, controller.signal)])
+      .then(([metrics, detail]) => {
+        setLoaded({ runId: selected, metrics, detail });
+        setError(null);
+      })
+      .catch((cause: unknown) => {
+        if (!controller.signal.aborted) setError(cause);
+      });
+    return () => controller.abort();
+  }, [selected]);
+
+  const metrics = loaded?.runId === selected ? loaded.metrics : null;
+  const detail = loaded?.runId === selected ? loaded.detail : null;
+  const loading = Boolean(selected) && !metrics && !error;
+
+  const selectable = useMemo(() => runs.filter((run) => run.has_metrics), [runs]);
+  const withoutMetrics = runs.length - selectable.length;
+  const run = runs.find((item) => item.id === selected);
+
+  const points = useMemo(() => {
+    if (!metrics) return [];
+    return Object.entries(metrics.systems).flatMap(([label, system]) => {
+      const x = system.metrics.tflops_mean?.mean;
+      const y = system.metrics.accuracy?.mean;
+      return x == null || y == null ? [] : [{ label, x, y, group: system.group }];
+    });
+  }, [metrics]);
+
+  const reference = metrics?.systems[metrics.reference_system];
+  const referenceErrors = metrics?.errors.per_system?.[metrics?.reference_system ?? ""] ?? {};
+  const errorBars = Object.entries(referenceErrors)
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, count]) => ({
+      label: label.replaceAll("_", " "),
+      value: count,
+      detail: String(count),
+    }));
+  const figures = detail?.available_figures.filter((name) => HEADLINE_FIGURES.includes(name)) ?? [];
+
+  return (
+    <div className="page">
+      <PageHeader
+        eyebrow="Stored evidence"
+        title="Experiment dashboard"
+        description="Inspect locally available run artifacts. Every value is loaded from a manifest or processed metrics file."
+        action={
+          <div className="toolbar">
+            <select
+              aria-label="Experiment run"
+              value={selected}
+              onChange={(event) => setSelected(event.target.value)}
+            >
+              <option value="">Select a run</option>
+              {selectable.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {runLabel(item)}
+                </option>
+              ))}
+            </select>
+          </div>
+        }
+      />
+      {error != null && <ErrorState error={error} />}
+
+      {!selected ? (
+        <div className="panel">
+          <EmptyState
+            title={runs.length ? "No experiment selected" : "No processed runs found"}
+            detail={
+              runs.length
+                ? "Choose a run from the list above."
+                : "Runs appear here once results/runs contains a manifest.json and processed/metrics.json. Produce one with: routeguard benchmark --config experiments/smoke/smoke.yaml"
+            }
+          />
+        </div>
+      ) : loading || !metrics ? (
+        <div className="panel loading">Loading stored metrics…</div>
+      ) : (
+        <div className="content-grid">
+          <section className="panel span-2">
+            <div className="panel-head">
+              <div>
+                <h2>{run?.name}</h2>
+                <p>{run?.description || "Stored research run"}</p>
+              </div>
+              <span className={`badge ${metrics.simulated ? "info" : "good"}`}>
+                {metrics.simulated ? "Simulated" : "Real model run"}
+              </span>
+            </div>
+            <div className="panel-body">
+              <dl className="metadata">
+                <div>
+                  <dt>Run ID</dt>
+                  <dd>{selected}</dd>
+                </div>
+                <div>
+                  <dt>Items</dt>
+                  <dd>{run?.item_count ?? "Unavailable"}</dd>
+                </div>
+                <div>
+                  <dt>Seeds</dt>
+                  <dd>{run?.seeds.join(", ") || "Unavailable"}</dd>
+                </div>
+                <div>
+                  <dt>Systems</dt>
+                  <dd>{Object.keys(metrics.systems).length}</dd>
+                </div>
+                <div>
+                  <dt>Model pool</dt>
+                  <dd>{metrics.model_order.join(" → ")}</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section className="panel span-2">
+            <div className="panel-head">
+              <div>
+                <h2>Quality–compute trade-off</h2>
+                <p>Mean test accuracy versus estimated forward-pass TFLOPs per query</p>
+              </div>
+            </div>
+            <div className="panel-body">
+              <ScatterChart
+                points={points}
+                xLabel="Estimated compute / query (TFLOPs)"
+                yLabel="Accuracy"
+              />
+            </div>
+          </section>
+
+          <section className="panel span-2">
+            <div className="panel-head">
+              <div>
+                <h2>System comparison</h2>
+                <p>Means over recorded seeds; unavailable measurements remain blank</p>
+              </div>
+            </div>
+            <div className="panel-body table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>System</th>
+                    <th>Group</th>
+                    <th>Accuracy</th>
+                    <th>TFLOPs</th>
+                    <th>P50 latency</th>
+                    <th>Calls</th>
+                    <th>Escalation</th>
+                    <th>Error AUROC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(metrics.systems).map(([name, system]) => (
+                    <tr key={name}>
+                      <td>
+                        <strong>{name.replaceAll("_", " ")}</strong>
+                      </td>
+                      <td>{system.group}</td>
+                      <td>{formatPercent(system.metrics.accuracy?.mean) ?? "—"}</td>
+                      <td>{formatNumber(system.metrics.tflops_mean?.mean) ?? "—"}</td>
+                      <td>
+                        {system.metrics.latency_p50_s?.mean == null
+                          ? "—"
+                          : `${system.metrics.latency_p50_s.mean.toFixed(2)} s`}
+                      </td>
+                      <td>{formatNumber(system.metrics.calls_mean?.mean) ?? "—"}</td>
+                      <td>{formatPercent(system.metrics.escalation_rate?.mean) ?? "—"}</td>
+                      <td>{formatNumber(system.metrics.rel_auroc_error_detection?.mean) ?? "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {reference && (
+            <section className="panel span-2">
+              <div className="panel-head">
+                <div>
+                  <h2>Reference system</h2>
+                  <p>{metrics.reference_system.replaceAll("_", " ")}</p>
+                </div>
+              </div>
+              <div className="panel-body">
+                <div className="metric-grid">
+                  <Metric label="Accuracy" value={formatPercent(reference.metrics.accuracy?.mean)} />
+                  <Metric
+                    label="Compute / query"
+                    value={formatNumber(reference.metrics.tflops_mean?.mean)}
+                    note="estimated TFLOPs"
+                  />
+                  <Metric
+                    label="Median latency"
+                    value={
+                      reference.metrics.latency_p50_s?.mean == null
+                        ? null
+                        : `${reference.metrics.latency_p50_s.mean.toFixed(2)} s`
+                    }
+                  />
+                  <Metric
+                    label="Escalation rate"
+                    value={formatPercent(reference.metrics.escalation_rate?.mean)}
+                  />
+                </div>
+              </div>
+            </section>
+          )}
+
+          {errorBars.length > 0 && (
+            <section className="panel span-2">
+              <div className="panel-head">
+                <div>
+                  <h2>Error categories</h2>
+                  <p>
+                    Automatic taxonomy counts for {metrics.reference_system.replaceAll("_", " ")}
+                  </p>
+                </div>
+              </div>
+              <div className="panel-body">
+                <Bars items={errorBars} />
+              </div>
+            </section>
+          )}
+
+          {figures.length > 0 && (
+            <section className="panel span-2">
+              <div className="panel-head">
+                <div>
+                  <h2>Stored run figures</h2>
+                  <p>Generated by the evaluation pipeline, not reconstructed in the browser</p>
+                </div>
+              </div>
+              <div className="panel-body figure-grid">
+                {figures.map((name) => (
+                  <figure key={name}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={artifactUrl(selected, "figures", name)}
+                      alt={`${name.replace(".png", "").replaceAll("_", " ")} for run ${selected}`}
+                      loading="lazy"
+                    />
+                    <figcaption>{name.replace(".png", "").replaceAll("_", " ")}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {withoutMetrics > 0 && (
+            <section className="panel span-2">
+              <div className="panel-body notice">
+                {withoutMetrics} further run{withoutMetrics === 1 ? "" : "s"} (RAG and tool-use
+                analyses) produce their own summary files rather than processed metrics, so they
+                cannot be shown here. Inspect them with <code>routeguard rag-eval</code> and{" "}
+                <code>routeguard tool-eval</code>.
+              </div>
+            </section>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

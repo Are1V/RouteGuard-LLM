@@ -1,0 +1,7 @@
+System,Group,Accuracy (%),Macro-acc. lang. (%),Compute/query (TFLOPs),Latency mean (s),Escalation rate (%)
+always_large,baseline,80.5 ± 0.6,79.3 ± 0.8,5.682 ± 0.040,2.757 ± 0.003,0.0 ± 0.0
+always_small,baseline,47.9 ± 0.7,47.9 ± 1.1,0.309 ± 0.002,0.448 ± 0.016,0.0 ± 0.0
+oracle,oracle,86.5 ± 0.2,88.2 ± 0.6,1.320 ± 0.017,0.916 ± 0.034,0.0 ± 0.0
+routeguard_english_trained,ablation,80.9 ± 1.6,81.3 ± 1.5,6.250 ± 0.754,3.432 ± 0.381,71.9 ± 8.3
+routeguard_per_language_calibration,ablation,80.2 ± 0.7,79.7 ± 0.8,5.715 ± 0.538,2.984 ± 0.284,47.1 ± 6.8
+routeguard,routeguard,80.6 ± 0.9,80.0 ± 0.9,5.951 ± 0.504,3.134 ± 0.300,50.9 ± 7.7

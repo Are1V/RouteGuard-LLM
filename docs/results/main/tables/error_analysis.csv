@@ -1,0 +1,11 @@
+System,Wrong,incorrect_routing,model_capability_failure,extraction_failure,high_confidence_wrong,low_confidence_correct,verifier_false_pass,verifier_false_fail,escalation_failure,escalation_harm,language_related_failure,retrieval_failure,unsupported_answer
+always_large,504,0,348,68,367,10,373,8,0,0,146,0,0
+always_medium,861,461,348,14,727,10,752,1,0,0,239,0,0
+always_small,1345,997,348,5,573,418,1228,0,0,0,280,0,0
+cascade,492,0,348,0,0,1235,398,0,144,83,136,0,0
+difficulty_threshold,979,590,348,17,540,180,902,9,0,0,259,0,0
+learned_router,1218,853,348,11,671,363,1106,0,0,0,293,0,0
+oracle,348,0,348,1,96,424,306,5,0,0,94,0,0
+random,929,506,348,26,579,137,814,2,0,0,284,0,0
+routeguard,500,12,348,46,28,1712,382,5,61,40,140,0,0
+rule_based,987,594,348,21,624,113,910,9,0,0,211,0,0

@@ -1,0 +1,22 @@
+System,Model,Acceptance rate (%),Accepted error rate (%),Accepted / seed
+conf_entropy,qwen3-1.7b,10.1 ± 17.4,20.0,42 ± 72
+conf_entropy,qwen3-8b,3.1 ± 5.3,25.6,13 ± 23
+conf_sequence_logprob,qwen3-1.7b,9.4 ± 16.3,16.2,39 ± 68
+conf_sequence_logprob,qwen3-8b,6.5 ± 6.6,34.3 ± 3.0,26 ± 28
+heuristic_difficulty,qwen3-1.7b,9.9 ± 17.2,16.4,41 ± 70
+heuristic_difficulty,qwen3-8b,4.9 ± 4.4,28.1 ± 5.3,20 ± 19
+neural_difficulty,qwen3-1.7b,10.1 ± 17.6,16.7,44 ± 76
+neural_difficulty,qwen3-8b,4.9 ± 4.4,25.8 ± 2.1,18 ± 17
+no_escalation,qwen3-0.6b,52.9 ± 10.2,24.0 ± 5.3,54 ± 19
+no_escalation,qwen3-1.7b,99.2 ± 0.5,26.6 ± 1.8,373 ± 54
+no_escalation,qwen3-8b,99.4 ± 0.5,27.0 ± 1.7,381 ± 39
+no_task_classification,qwen3-1.7b,2.0 ± 3.5,13.6,7 ± 13
+no_task_classification,qwen3-8b,19.9 ± 34.5,22.6,84 ± 145
+no_verification,qwen3-1.7b,9.9 ± 17.2,16.3,41 ± 71
+no_verification,qwen3-8b,5.0 ± 4.5,28.1 ± 5.3,20 ± 19
+oracle_task_labels,qwen3-8b,8.2 ± 9.1,29.6 ± 5.3,25 ± 30
+routeguard,qwen3-1.7b,9.9 ± 17.2,16.3,41 ± 71
+routeguard,qwen3-8b,5.0 ± 4.5,28.1 ± 5.3,20 ± 19
+uncalibrated_fixed_threshold,qwen3-0.6b,83.4 ± 5.9,27.9 ± 8.7,85 ± 23
+uncalibrated_fixed_threshold,qwen3-1.7b,77.0 ± 2.6,24.8 ± 1.7,290 ± 48
+uncalibrated_fixed_threshold,qwen3-8b,94.2 ± 0.6,25.4 ± 1.1,361 ± 36

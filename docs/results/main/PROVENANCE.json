@@ -1,0 +1,49 @@
+{
+  "run_id": "main_20260919-112544_nogit",
+  "git": {
+    "commit": null,
+    "dirty": null
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "data_fingerprint": "e5262f89612be3fb",
+  "data": {
+    "n_items": 2150,
+    "by_source": {
+      "belebele": 600,
+      "sib200": 500,
+      "global_mmlu": 300,
+      "mgsm": 300,
+      "mbpp": 150,
+      "nq_open": 150,
+      "arc-challenge": 150
+    },
+    "by_language": {
+      "en": 950,
+      "kk": 250,
+      "ru": 500,
+      "pes_Arab": 250,
+      "prs_Arab": 100,
+      "fa": 100
+    },
+    "by_category": {
+      "reading_comprehension": 600,
+      "classification": 500,
+      "factual_qa": 372,
+      "science": 228,
+      "math": 300,
+      "coding": 150
+    }
+  },
+  "simulated": false,
+  "started": "2026-09-19T11:25:44+0500",
+  "finished": "2026-09-19T14:09:21+0500",
+  "models": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-8B"
+  ]
+}

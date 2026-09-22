@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Accuracy relative to the best cost-matched random mixture of the fixed-model systems (upper concave hull; per seed, then mean $\pm$ std). Positive = the system adds value beyond how much compute it spends. Mean $\pm$ std over 3 seeds.}
+\label{tab:cost_matched_mixture}
+\begin{tabular}{lrrrr}
+\toprule
+System & Group & Compute/query (TFLOPs) & Accuracy (\%) & Gap vs mixture (pp) \\
+\midrule
+always\_large & baseline & 5.682 $\pm$ 0.040 & 80.5 $\pm$ 0.6 & 0.0 $\pm$ 0.0 \\
+always\_medium & baseline & 1.066 $\pm$ 0.007 & 66.6 $\pm$ 1.0 & 0.0 $\pm$ 0.0 \\
+always\_small & baseline & 0.309 $\pm$ 0.002 & 47.9 $\pm$ 0.7 & 0.0 $\pm$ 0.0 \\
+cascade & baseline & 6.526 $\pm$ 0.897 & 80.9 $\pm$ 1.6 & 0.7 $\pm$ 0.9 \\
+difficulty\_threshold & baseline & 1.639 $\pm$ 0.053 & 62.1 $\pm$ 0.3 & -6.3 $\pm$ 0.7 \\
+learned\_router & baseline & 0.741 $\pm$ 0.080 & 52.8 $\pm$ 0.7 & -5.8 $\pm$ 2.0 \\
+oracle & oracle & 1.320 $\pm$ 0.017 & 86.5 $\pm$ 0.2 & 19.1 $\pm$ 1.2 \\
+random & baseline & 2.300 $\pm$ 0.075 & 64.0 $\pm$ 0.1 & -6.3 $\pm$ 0.4 \\
+routeguard & routeguard & 5.951 $\pm$ 0.504 & 80.6 $\pm$ 0.9 & 0.5 $\pm$ 0.1 \\
+rule\_based & baseline & 1.596 $\pm$ 0.057 & 61.7 $\pm$ 0.6 & -6.5 $\pm$ 1.4 \\
+\bottomrule
+\end{tabular}
+\end{table}

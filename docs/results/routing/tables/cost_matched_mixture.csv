@@ -1,0 +1,18 @@
+System,Group,Compute/query (TFLOPs),Accuracy (%),Gap vs mixture (pp)
+always_large,baseline,5.682 ± 0.040,80.5 ± 0.6,0.0 ± 0.0
+always_medium,baseline,1.066 ± 0.007,66.6 ± 1.0,0.0 ± 0.0
+always_small,baseline,0.309 ± 0.002,47.9 ± 0.7,0.0 ± 0.0
+cost_aware_t0.5,routeguard,1.443 ± 0.136,60.7 ± 1.1,-7.1 ± 1.1
+cost_aware_t0.7,routeguard,3.329 ± 0.165,72.0 ± 1.1,-1.4 ± 0.5
+cost_aware_t0.85,routeguard,4.776 ± 0.143,77.4 ± 0.7,-0.3 ± 0.6
+learned_router,routeguard,0.741 ± 0.080,52.8 ± 0.7,-5.8 ± 2.0
+oracle,oracle,1.320 ± 0.017,86.5 ± 0.2,19.1 ± 1.2
+quality_cost_l0.05,routeguard,5.065 ± 0.121,78.4 ± 0.6,-0.2 ± 0.6
+quality_cost_l0.2,routeguard,2.484 ± 0.200,70.5 ± 1.6,-0.3 ± 0.5
+quality_cost_l0.5,routeguard,0.996 ± 0.017,65.0 ± 1.6,0.1 ± 0.5
+random,baseline,2.300 ± 0.075,64.0 ± 0.1,-6.3 ± 0.4
+rule_based,baseline,1.596 ± 0.057,61.7 ± 0.6,-6.5 ± 1.4
+threshold_heuristic,baseline,1.639 ± 0.053,62.1 ± 0.3,-6.3 ± 0.7
+threshold_learned,baseline,0.697 ± 0.005,54.7 ± 0.4,-2.7 ± 0.1
+threshold_llm_judge,baseline,1.207 ± 0.008,66.6 ± 1.0,-0.4 ± 0.0
+threshold_neural,baseline,0.917 ± 0.068,54.5 ± 0.8,-8.5 ± 2.5

@@ -1,0 +1,74 @@
+{
+  "overall": {
+    "n": 600.0,
+    "accuracy": 0.575,
+    "retrieval_recall_at_k": 0.8116666666666666,
+    "mrr": 0.7483333333333333,
+    "groundedness_mean": 0.5380298012173012,
+    "accuracy_given_hit": 0.6694045174537988,
+    "accuracy_given_miss": 0.168141592920354,
+    "answer_without_evidence_rate": 0.9911504424778761,
+    "abstention_rate": 0.0033333333333333335,
+    "citation_support_rate": 1.0,
+    "retrieval_failure_share": 0.155,
+    "generation_failure_share": 0.26666666666666666
+  },
+  "by_language": {
+    "en": {
+      "n": 150.0,
+      "accuracy": 0.7266666666666667,
+      "retrieval_recall_at_k": 0.8733333333333333,
+      "mrr": 0.8122222222222222,
+      "groundedness_mean": 0.6620206830206831,
+      "accuracy_given_hit": 0.816793893129771,
+      "accuracy_given_miss": 0.10526315789473684,
+      "answer_without_evidence_rate": 1.0,
+      "abstention_rate": 0.0,
+      "citation_support_rate": 1.0,
+      "retrieval_failure_share": 0.11333333333333333,
+      "generation_failure_share": 0.16
+    },
+    "kk": {
+      "n": 150.0,
+      "accuracy": 0.38,
+      "retrieval_recall_at_k": 0.7333333333333333,
+      "mrr": 0.6711111111111111,
+      "groundedness_mean": 0.3803140933140933,
+      "accuracy_given_hit": 0.43636363636363634,
+      "accuracy_given_miss": 0.225,
+      "answer_without_evidence_rate": 1.0,
+      "abstention_rate": 0.006666666666666667,
+      "citation_support_rate": NaN,
+      "retrieval_failure_share": 0.20666666666666667,
+      "generation_failure_share": 0.4066666666666667
+    },
+    "pes_Arab": {
+      "n": 150.0,
+      "accuracy": 0.5866666666666667,
+      "retrieval_recall_at_k": 0.9,
+      "mrr": 0.83,
+      "groundedness_mean": 0.67792279017279,
+      "accuracy_given_hit": 0.6296296296296297,
+      "accuracy_given_miss": 0.2,
+      "answer_without_evidence_rate": 1.0,
+      "abstention_rate": 0.0,
+      "citation_support_rate": 1.0,
+      "retrieval_failure_share": 0.08,
+      "generation_failure_share": 0.3333333333333333
+    },
+    "ru": {
+      "n": 150.0,
+      "accuracy": 0.6066666666666667,
+      "retrieval_recall_at_k": 0.74,
+      "mrr": 0.68,
+      "groundedness_mean": 0.4318616383616383,
+      "accuracy_given_hit": 0.7747747747747747,
+      "accuracy_given_miss": 0.1282051282051282,
+      "answer_without_evidence_rate": 0.9743589743589743,
+      "abstention_rate": 0.006666666666666667,
+      "citation_support_rate": NaN,
+      "retrieval_failure_share": 0.22,
+      "generation_failure_share": 0.16666666666666666
+    }
+  }
+}

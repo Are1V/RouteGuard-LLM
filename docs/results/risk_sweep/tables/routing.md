@@ -1,0 +1,18 @@
+**Routing quality relative to the cost-optimal oracle. Mean ± std over 3 seeds.**
+
+| System | Routing acc. (%) | Unnecessary large-model use (%) | Incorrect small-model routing (%) | Oracle acc. (%) |
+|---|---:|---:|---:|---:|
+| always_large | 13.3 ± 0.6 | 86.7 ± 0.6 | 0.0 ± 0.0 | 86.5 ± 0.2 |
+| always_medium | 25.4 ± 1.1 | 61.4 ± 0.5 | 17.9 ± 1.2 | 86.5 ± 0.2 |
+| always_small | 61.4 ± 0.5 | 0.0 ± 0.0 | 38.6 ± 0.5 | 86.5 ± 0.2 |
+| cascade_a0.25 | 61.4 ± 0.5 | 0.0 ± 0.0 | 38.6 ± 0.5 | 86.5 ± 0.2 |
+| cascade_a0.35 | 61.4 ± 0.5 | 0.0 ± 0.0 | 38.6 ± 0.5 | 86.5 ± 0.2 |
+| cascade_a0.5 | 61.4 ± 0.5 | 0.0 ± 0.0 | 38.6 ± 0.5 | 86.5 ± 0.2 |
+| oracle | 100.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 | 86.5 ± 0.2 |
+| routeguard_a0.15 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_a0.25 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_a0.35 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_a0.5 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_conditional_a0.15 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_conditional_a0.25 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |
+| routeguard_conditional_a0.35 | 27.1 ± 0.5 | 64.3 ± 1.4 | 10.7 ± 1.3 | 86.5 ± 0.2 |

@@ -1,0 +1,34 @@
+# Routing strategies and difficulty estimators without escalation, including cost/quality
+# operating points (cost-aware target and quality-cost lambda sweeps).
+extends: ../baselines/main.yaml
+name: routing
+description: Router and difficulty-estimator comparison (no escalation).
+report: {reference_system: cost_aware_t0.7}
+pipeline:
+  extends: ../../configs/local_hf.yaml
+  escalation: {enabled: false}
+systems:
+  - {name: always_small, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-0.6b}}}}
+  - {name: always_medium, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-1.7b}}}}
+  - {name: always_large, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-8b}}}}
+  - {name: random, group: baseline, overrides: {router: {type: random}}}
+  - {name: rule_based, group: baseline, overrides: {router: {type: rules}}}
+  - {name: threshold_heuristic, group: baseline, overrides: {difficulty: {estimator: heuristic}}}
+  - {name: threshold_learned, group: baseline, overrides: {difficulty: {estimator: learned}}}
+  - {name: threshold_neural, group: baseline, overrides: {difficulty: {estimator: neural}}}
+  - {name: threshold_llm_judge, group: baseline,
+     overrides: {difficulty: {estimator: llm_judge, options: {model: qwen3-0.6b}}}}
+  - {name: learned_router, group: routeguard, overrides: {difficulty: {estimator: learned}, router: {type: learned}}}
+  - {name: cost_aware_t0.5, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: cost_aware, options: {target: 0.5}}}}
+  - {name: cost_aware_t0.7, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: cost_aware, options: {target: 0.7}}}}
+  - {name: cost_aware_t0.85, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: cost_aware, options: {target: 0.85}}}}
+  - {name: quality_cost_l0.05, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: quality_cost, options: {cost_weight: 0.05}}}}
+  - {name: quality_cost_l0.2, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: quality_cost, options: {cost_weight: 0.2}}}}
+  - {name: quality_cost_l0.5, group: routeguard,
+     overrides: {difficulty: {estimator: learned}, router: {type: quality_cost, options: {cost_weight: 0.5}}}}
+  - {name: oracle, group: oracle, overrides: {router: {type: oracle}}}

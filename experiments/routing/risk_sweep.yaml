@@ -1,0 +1,66 @@
+# Sensitivity of routing + risk-controlled escalation to the target risk alpha.
+# At alpha = 0.15 no acceptance threshold can be certified for the two small models, so every
+# answer they produce is escalated. Larger alpha trades accuracy for compute. This is a sweep,
+# reported as a curve; alpha is never selected on the test split. The *conditional* variants
+# certify initial-answer thresholds on the calibration items the router actually sends to each
+# model, which restores the risk guarantee under routing-induced selection (see the acceptance table).
+extends: ../baselines/main.yaml
+name: risk_sweep
+report: {reference_system: routeguard_a0.15}
+systems:
+  - {name: always_small, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-0.6b}}, escalation: {enabled: false}}}
+  - {name: always_medium, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-1.7b}}, escalation: {enabled: false}}}
+  - {name: always_large, group: baseline, overrides: {router: {type: fixed, options: {model: qwen3-8b}}, escalation: {enabled: false}}}
+  - name: routeguard_a0.15
+    group: routeguard
+    overrides: &rg
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.7}}
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}}
+  - name: routeguard_a0.25
+    group: routeguard
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.25, delta: 0.1}}}
+  - name: routeguard_a0.35
+    group: routeguard
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.35, delta: 0.1}}}
+  - name: routeguard_a0.5
+    group: routeguard
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.5, delta: 0.1}}}
+  - name: cascade_a0.25
+    group: baseline
+    overrides:
+      router: {type: fixed, options: {model: qwen3-0.6b}}
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.25, delta: 0.1}}}
+  - name: cascade_a0.35
+    group: baseline
+    overrides:
+      router: {type: fixed, options: {model: qwen3-0.6b}}
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.35, delta: 0.1}}}
+  - name: cascade_a0.5
+    group: baseline
+    overrides:
+      router: {type: fixed, options: {model: qwen3-0.6b}}
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.5, delta: 0.1}}}
+  - name: routeguard_conditional_a0.15
+    group: routeguard
+    description: thresholds certified only on calibration items the router sends to each model
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1, conditional_on_routing: true}}}
+  - name: routeguard_conditional_a0.25
+    group: routeguard
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.25, delta: 0.1, conditional_on_routing: true}}}
+  - name: routeguard_conditional_a0.35
+    group: routeguard
+    overrides:
+      <<: *rg
+      escalation: {triggers: {confidence_below: null, risk_control: {target_risk: 0.35, delta: 0.1, conditional_on_routing: true}}}
+  - {name: oracle, group: oracle, overrides: {router: {type: oracle}, escalation: {enabled: false}}}

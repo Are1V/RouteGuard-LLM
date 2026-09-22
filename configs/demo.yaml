@@ -1,0 +1,64 @@
+# RouteGuard demo pipeline — SIMULATED backend.
+#
+# Runs on any laptop without downloading models. The simulated backend answers
+# correctly with a probability set by `capability` and the item's latent
+# difficulty; the language offsets below are *made-up simulation parameters*
+# that let the demo exercise multilingual code paths. Nothing produced with
+# this config is a result about real language models.
+#
+# For real models use configs/local_hf.yaml or configs/openai_compatible.yaml.
+name: routeguard-demo
+seed: 0
+
+models:                       # ordered weakest/cheapest -> strongest/most expensive
+  - name: small
+    backend: simulated
+    model_id: sim-small
+    params_b: 0.5
+    max_new_tokens: 256
+    options: {capability: 0.35, tokens_per_second: 90, language_offsets: {kk: -1.2, fa: -0.9, ru: -0.3}}
+  - name: medium
+    backend: simulated
+    model_id: sim-medium
+    params_b: 1.5
+    max_new_tokens: 256
+    options: {capability: 0.55, tokens_per_second: 60, language_offsets: {kk: -0.8, fa: -0.6, ru: -0.2}}
+  - name: large
+    backend: simulated
+    model_id: sim-large
+    params_b: 7.0
+    max_new_tokens: 256
+    options: {capability: 0.8, tokens_per_second: 25, language_offsets: {kk: -0.4, fa: -0.3}}
+
+analyzer:
+  languages: [en, kk, ru, fa, ar]
+  task_classifier: rules
+
+difficulty:
+  estimator: heuristic
+  easy_below: 0.34
+  hard_above: 0.67
+
+router:
+  type: threshold
+  options: {thresholds: [0.3, 0.55]}
+
+confidence:
+  method: mean_token_prob
+  calibration: none           # the demo has no calibration split; see experiments/ for fitted calibration
+
+verification:
+  verifiers: [format, arithmetic, code_execution]
+
+escalation:
+  enabled: true
+  triggers:
+    confidence_below: 0.8
+    on_verification_failure: true
+  stages:
+    - type: stronger_model
+    - type: stronger_model
+  max_stages: 2
+
+cache:
+  path: .routeguard_cache/demo.sqlite

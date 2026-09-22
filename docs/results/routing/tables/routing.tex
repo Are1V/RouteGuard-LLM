@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Routing quality relative to the cost-optimal oracle. Mean $\pm$ std over 3 seeds.}
+\label{tab:routing}
+\begin{tabular}{lrrrr}
+\toprule
+System & Routing acc. (\%) & Unnecessary large-model use (\%) & Incorrect small-model routing (\%) & Oracle acc. (\%) \\
+\midrule
+always\_large & 13.3 $\pm$ 0.6 & 86.7 $\pm$ 0.6 & 0.0 $\pm$ 0.0 & 86.5 $\pm$ 0.2 \\
+always\_medium & 25.4 $\pm$ 1.1 & 61.4 $\pm$ 0.5 & 17.9 $\pm$ 1.2 & 86.5 $\pm$ 0.2 \\
+always\_small & 61.4 $\pm$ 0.5 & 0.0 $\pm$ 0.0 & 38.6 $\pm$ 0.5 & 86.5 $\pm$ 0.2 \\
+cost\_aware\_t0.5 & 41.1 $\pm$ 3.1 & 37.1 $\pm$ 5.0 & 24.1 $\pm$ 1.7 & 86.5 $\pm$ 0.2 \\
+cost\_aware\_t0.7 & 27.1 $\pm$ 0.5 & 64.3 $\pm$ 1.4 & 10.7 $\pm$ 1.3 & 86.5 $\pm$ 0.2 \\
+cost\_aware\_t0.85 & 16.2 $\pm$ 0.5 & 80.7 $\pm$ 1.4 & 4.1 $\pm$ 1.2 & 86.5 $\pm$ 0.2 \\
+learned\_router & 52.5 $\pm$ 0.8 & 15.2 $\pm$ 1.6 & 33.1 $\pm$ 0.8 & 86.5 $\pm$ 0.2 \\
+oracle & 100.0 $\pm$ 0.0 & 0.0 $\pm$ 0.0 & 0.0 $\pm$ 0.0 & 86.5 $\pm$ 0.2 \\
+quality\_cost\_l0.05 & 15.5 $\pm$ 1.9 & 82.2 $\pm$ 2.4 & 2.8 $\pm$ 1.2 & 86.5 $\pm$ 0.2 \\
+quality\_cost\_l0.2 & 24.7 $\pm$ 1.0 & 65.4 $\pm$ 1.3 & 13.1 $\pm$ 1.8 & 86.5 $\pm$ 0.2 \\
+quality\_cost\_l0.5 & 29.4 $\pm$ 1.9 & 54.9 $\pm$ 1.9 & 20.0 $\pm$ 1.5 & 86.5 $\pm$ 0.2 \\
+random & 32.1 $\pm$ 0.8 & 49.9 $\pm$ 1.1 & 19.6 $\pm$ 0.6 & 86.5 $\pm$ 0.2 \\
+rule\_based & 42.5 $\pm$ 0.6 & 36.6 $\pm$ 0.5 & 23.0 $\pm$ 0.3 & 86.5 $\pm$ 0.2 \\
+threshold\_heuristic & 44.5 $\pm$ 0.9 & 34.9 $\pm$ 1.2 & 22.9 $\pm$ 0.3 & 86.5 $\pm$ 0.2 \\
+threshold\_learned & 50.0 $\pm$ 0.9 & 20.8 $\pm$ 1.0 & 30.9 $\pm$ 0.6 & 86.5 $\pm$ 0.2 \\
+threshold\_llm\_judge & 25.4 $\pm$ 1.1 & 61.4 $\pm$ 0.5 & 17.9 $\pm$ 1.2 & 86.5 $\pm$ 0.2 \\
+threshold\_neural & 52.1 $\pm$ 1.3 & 18.0 $\pm$ 1.6 & 30.8 $\pm$ 0.3 & 86.5 $\pm$ 0.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use RouteGuard-LLM in your research, please cite it as below."
+title: "RouteGuard-LLM: Reliability-Aware Adaptive Routing for LLM Inference"
+type: software
+authors:
+  - family-names: Mohebi
+    given-names: Mirwais
+version: 0.1.0
+date-released: 2026-09-19
+license: Apache-2.0
+keywords:
+  - large language models
+  - model routing
+  - uncertainty estimation
+  - calibration
+  - selective prediction
+  - multilingual evaluation
+  - Kazakh
+  - Persian
+  - Dari
+abstract: >-
+  RouteGuard-LLM is an open-source framework for studying adaptive, reliability-aware LLM
+  inference. It routes each query to one of several models based on its estimated difficulty,
+  estimates and calibrates the reliability of the answer, verifies it with deterministic checks
+  where possible, and escalates unreliable answers to stronger inference strategies. It includes a
+  reproducible, leakage-safe benchmark protocol with multilingual evaluation in English, Kazakh,
+  Russian, Persian, and Dari.

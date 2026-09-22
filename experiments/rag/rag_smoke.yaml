@@ -1,0 +1,9 @@
+# RAG reliability smoke test (SIMULATED backend): passages of the smoke fixture are not
+# available, so this uses a tiny passage-based fixture. For the real multilingual study
+# see experiments/rag/belebele_rag.yaml.
+name: rag_smoke
+pipeline: {extends: ../../configs/demo.yaml, cache: {path: .routeguard_cache/rag.sqlite}}
+model: medium
+data:
+  - {loader: jsonl, path: benchmarks/samples/rag_passages.jsonl}
+k: 2

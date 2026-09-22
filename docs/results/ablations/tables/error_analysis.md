@@ -1,0 +1,16 @@
+**Failure labels per system (counts; an example can carry several labels).**
+
+| System | Wrong | incorrect_routing | model_capability_failure | extraction_failure | high_confidence_wrong | low_confidence_correct | verifier_false_pass | verifier_false_fail | escalation_failure | escalation_harm | language_related_failure | retrieval_failure | unsupported_answer |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| conf_entropy | 503 | 15 | 348 | 46 | 28 | 1729 | 385 | 5 | 61 | 40 | 140 | 0 | 0 |
+| conf_min_token_prob | 492 | 0 | 348 | 46 | 0 | 1858 | 373 | 5 | 65 | 44 | 138 | 0 | 0 |
+| conf_sequence_logprob | 499 | 11 | 348 | 46 | 32 | 1708 | 381 | 5 | 61 | 40 | 140 | 0 | 0 |
+| heuristic_difficulty | 499 | 12 | 348 | 45 | 28 | 1717 | 382 | 5 | 62 | 41 | 139 | 0 | 0 |
+| neural_difficulty | 502 | 14 | 348 | 45 | 31 | 1693 | 385 | 5 | 63 | 43 | 139 | 0 | 0 |
+| no_confidence | 702 | 257 | 348 | 46 | 0 | 0 | 601 | 5 | 4 | 0 | 185 | 0 | 0 |
+| no_escalation | 722 | 277 | 348 | 48 | 535 | 81 | 599 | 5 | 0 | 0 | 185 | 0 | 0 |
+| no_task_classification | 485 | 2 | 341 | 6 | 50 | 1706 | 433 | 2 | 74 | 49 | 152 | 0 | 0 |
+| no_verification | 503 | 14 | 348 | 46 | 36 | 1712 | 0 | 0 | 62 | 40 | 140 | 0 | 0 |
+| oracle_task_labels | 500 | 0 | 365 | 31 | 12 | 1779 | 408 | 6 | 78 | 52 | 146 | 0 | 0 |
+| routeguard | 500 | 12 | 348 | 46 | 28 | 1712 | 382 | 5 | 61 | 40 | 140 | 0 | 0 |
+| uncalibrated_fixed_threshold | 648 | 192 | 348 | 46 | 459 | 217 | 542 | 5 | 21 | 8 | 175 | 0 | 0 |

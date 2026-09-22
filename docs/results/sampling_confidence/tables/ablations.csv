@@ -1,0 +1,4 @@
+System,Accuracy (%),Δ acc. vs ref. (pp),95% CI (pp),Compute/query (TFLOPs),Escalation rate (%)
+routeguard,76.5,0.0,–,6.330,47.2
+conf_self_consistency,76.5,+0.0,"[+0.0, +0.0]",31.665,47.2
+conf_semantic_entropy,76.5,+0.0,"[+0.0, +0.0]",31.665,47.2

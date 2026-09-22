@@ -1,0 +1,75 @@
+# Task-category taxonomy and multilingual cue lexicon for the rule-based task classifier.
+#
+# Each category lists regular expressions (matched case-insensitively against the query).
+# The classifier sums the matches per category, adds the structural cues it detects
+# (code fences, math operators, answer options, passages), and returns the arg-max.
+# Queries with no cue fall back to `default`.
+#
+# Language is deliberately *not* a category: "multilingual QA" is the language axis
+# crossed with the task axis (see docs/multilingual.md). Copy this file and point
+# `analyzer.task_classifier.lexicon` at the copy to customise the taxonomy.
+
+default: general
+
+categories:
+  math:
+    - '\d+\s*[-+*/×÷^]\s*\d+'
+    - 'how many|how much|calculate|compute|solve|equation|sum of|product of|percent|average'
+    - 'сколько|вычисл|реши|уравнени|сумм|процент|средн'
+    - 'неше|қанша|есепте|шеш|теңдеу|қосынды|пайыз'
+    - 'چند|چقدر|محاسبه|حل کن|معادله|مجموع|درصد|میانگین|حاصل'
+  logic:
+    - 'if .* then|implies|deduce|puzzle|which of the following must|true or false|riddle'
+    - 'если .* то|следует ли|логическ|головоломк'
+    - 'егер .* онда|логикалық|жұмбақ'
+    - 'اگر .* آنگاه|منطقی|معما|نتیجه می‌گیریم'
+  coding:
+    - '```|\bdef \w+\(|\bfunction\b|\bpython\b|\bjavascript\b|\bcode\b|\bimplement\b|\balgorithm\b|\breturn\b'
+    - 'напиши(те)? (функцию|код|программу)|программ|функци[юя]'
+    - 'бағдарлама|функция жаз|код жаз'
+    - 'کد|برنامه بنویس|تابع'
+  summarization:
+    - '\bsummari[sz]e|\bsummary\b|\btl;?dr\b|in (one|two|a few) sentences'
+    - 'кратко изложи|резюмир|кратк(ое|о) содержани'
+    - 'қысқаша мазмұн|түйіндеме'
+    - 'خلاصه'
+  extraction:
+    - '\bextract\b|\blist all\b|\bidentify all\b|named entities|\bparse\b'
+    - 'извлеки|перечисли все|выпиши'
+    - 'бөліп ал|барлығын тізімде'
+    - 'استخراج|فهرست کن'
+  translation:
+    - '\btranslate\b|\btranslation\b|into (english|russian|kazakh|persian|dari)'
+    - 'переведи|перевод'
+    - 'аудар'
+    - 'ترجمه'
+  science:
+    - 'physics|chemistry|biology|molecule|atom|cell|energy|force|velocity|gravity|photosynthesis'
+    - 'физик|хими|биолог|молекул|атом|клетк|энерги|скорост'
+    - 'физика|химия|биология|молекула|жасуша|энергия'
+    - 'فیزیک|شیمی|زیست|مولکول|اتم|سلول|انرژی'
+  classification:
+    - '\bclassify\b|\bcategori[sz]e\b|which (topic|category|class)|\bsentiment\b|belongs? to'
+    - 'классифицир|к какой (теме|категории)'
+    - 'жіктe|қай (тақырып|санат)'
+    - 'دسته‌بندی|طبقه‌بندی|کدام موضوع'
+  reading_comprehension:
+    - 'according to the (passage|text)|based on the (passage|text)|in the passage|the (passage|text) (states|says|mentions)'
+    - 'согласно (тексту|отрывку)|в (тексте|отрывке)|по (тексту|отрывку)'
+    - '(мәтінге|үзіндіге) сәйкес|(мәтінде|үзіндіде)'
+    - '(طبق|بر اساس|مطابق) (متن|قطعه|بند)|در (متن|قطعه|بند)'
+  instruction_following:
+    - 'write (a|an) (poem|story|essay|letter|email)|in exactly \d+|do not use|all (capital|lowercase) letters|format'
+    - 'напиши (стих|рассказ|письмо|эссе)'
+    - '(өлең|әңгіме|хат) жаз'
+    - '(شعر|داستان|نامه|مقاله) بنویس'
+  tool_use:
+    - 'current (weather|time|date|price)|look up|search the web|use the calculator|exchange rate|call the api'
+    - 'текущ(ая|ий) (погода|курс)|найди в интернете'
+    - 'ағымдағы|интернеттен ізде'
+    - 'نرخ ارز|آب و هوای فعلی|جستجو کن'
+  factual_qa:
+    - '^(who|what|when|where|which)\b|capital of|born in|founded|invented|discovered'
+    - '^(кто|что|когда|где|какой|какая|какое)\b|столиц'
+    - '^(кім|не|қашан|қайда|қай)\b|астана'
+    - '^(چه کسی|چه|کی|کجا|کدام)|پایتخت'

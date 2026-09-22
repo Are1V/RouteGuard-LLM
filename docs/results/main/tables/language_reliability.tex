@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Error-detection AUROC of initial confidence, by language. Mean $\pm$ std over 3 seeds.}
+\label{tab:language_reliability}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & en & fa & kk & pes\_Arab & prs\_Arab & ru \\
+\midrule
+always\_large & 0.584 $\pm$ 0.035 & 0.604 $\pm$ 0.046 & 0.525 $\pm$ 0.021 & 0.554 $\pm$ 0.069 & 0.711 $\pm$ 0.011 & 0.706 $\pm$ 0.040 \\
+always\_medium & 0.635 $\pm$ 0.037 & 0.566 $\pm$ 0.016 & 0.476 $\pm$ 0.040 & 0.428 $\pm$ 0.013 & 0.535 $\pm$ 0.052 & 0.593 $\pm$ 0.022 \\
+always\_small & 0.703 $\pm$ 0.011 & 0.360 $\pm$ 0.073 & 0.537 $\pm$ 0.028 & 0.648 $\pm$ 0.065 & 0.703 $\pm$ 0.101 & 0.610 $\pm$ 0.016 \\
+cascade & 0.703 $\pm$ 0.011 & 0.360 $\pm$ 0.073 & 0.537 $\pm$ 0.028 & 0.648 $\pm$ 0.065 & 0.703 $\pm$ 0.101 & 0.610 $\pm$ 0.016 \\
+difficulty\_threshold & 0.770 $\pm$ 0.024 & 0.556 $\pm$ 0.045 & 0.505 $\pm$ 0.051 & 0.551 $\pm$ 0.024 & 0.703 $\pm$ 0.101 & 0.598 $\pm$ 0.051 \\
+learned\_router & 0.548 $\pm$ 0.029 & 0.533 $\pm$ 0.007 & 0.528 $\pm$ 0.042 & 0.624 $\pm$ 0.092 & 0.703 $\pm$ 0.101 & 0.611 $\pm$ 0.007 \\
+oracle & 0.894 $\pm$ 0.016 & 0.634 $\pm$ 0.111 & 0.578 $\pm$ 0.056 & 0.748 $\pm$ 0.084 & 0.884 $\pm$ 0.024 & 0.767 $\pm$ 0.079 \\
+random & 0.705 $\pm$ 0.031 & 0.566 $\pm$ 0.026 & 0.643 $\pm$ 0.046 & 0.688 $\pm$ 0.056 & 0.773 $\pm$ 0.072 & 0.735 $\pm$ 0.032 \\
+routeguard & 0.571 $\pm$ 0.040 & 0.610 $\pm$ 0.026 & 0.518 $\pm$ 0.044 & 0.574 $\pm$ 0.070 & 0.535 $\pm$ 0.052 & 0.692 $\pm$ 0.077 \\
+rule\_based & 0.773 $\pm$ 0.023 & 0.514 $\pm$ 0.042 & 0.477 $\pm$ 0.040 & 0.428 $\pm$ 0.013 & 0.535 $\pm$ 0.052 & 0.654 $\pm$ 0.034 \\
+\bottomrule
+\end{tabular}
+\end{table}

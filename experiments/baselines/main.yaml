@@ -1,0 +1,55 @@
+# Main study: RouteGuard vs baselines on the multilingual core suite with real local models.
+#
+#   routeguard benchmark --config experiments/baselines/main.yaml
+#
+# All systems share one generation cache, so each (model, prompt) pair is generated once.
+# The oracle is an upper bound for single-call routing and is NOT deployable.
+extends: ../../benchmarks/configs/core_suite.yaml
+name: main
+description: RouteGuard vs fixed-model, random, rule, difficulty, learned, cascade routing and the oracle.
+seeds: [0, 1, 2]
+pipeline: {extends: ../../configs/local_hf.yaml}
+report: {reference_system: routeguard}
+
+systems:
+  - name: always_small
+    group: baseline
+    overrides: {router: {type: fixed, options: {model: qwen3-0.6b}}, escalation: {enabled: false}}
+  - name: always_medium
+    group: baseline
+    overrides: {router: {type: fixed, options: {model: qwen3-1.7b}}, escalation: {enabled: false}}
+  - name: always_large
+    group: baseline
+    overrides: {router: {type: fixed, options: {model: qwen3-8b}}, escalation: {enabled: false}}
+  - name: random
+    group: baseline
+    overrides: {router: {type: random}, escalation: {enabled: false}}
+  - name: rule_based
+    group: baseline
+    overrides: {router: {type: rules}, escalation: {enabled: false}}
+  - name: difficulty_threshold
+    group: baseline
+    description: heuristic difficulty (Baseline A) partitioned into three tiers
+    overrides: {router: {type: threshold}, escalation: {enabled: false}}
+  - name: learned_router
+    group: baseline
+    description: multiclass cheapest-correct-tier classifier (Router 4)
+    overrides: {difficulty: {estimator: learned}, router: {type: learned}, escalation: {enabled: false}}
+  - name: cascade
+    group: baseline
+    description: always start with the smallest model; escalate on calibrated confidence / verification
+    overrides:
+      router: {type: fixed, options: {model: qwen3-0.6b}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}
+  - name: routeguard
+    group: routeguard
+    description: learned difficulty + cost-aware router + calibrated confidence + verification + risk-controlled escalation
+    overrides:
+      difficulty: {estimator: learned}
+      router: {type: cost_aware, options: {target: 0.7}}
+      escalation:
+        triggers: {confidence_below: null, risk_control: {target_risk: 0.15, delta: 0.1}}
+  - name: oracle
+    group: oracle
+    overrides: {router: {type: oracle}, escalation: {enabled: false}}
