@@ -7,8 +7,8 @@ const sans = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-sans" }
 const mono = IBM_Plex_Mono({ subsets: ["latin", "cyrillic"], weight: ["400", "500"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "RouteGuard Research Console",
-  description: "Inspect reliability-aware LLM routing decisions and experiment results.",
+  title: "RouteGuard",
+  description: "Reliable routing for multi-model LLM applications.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

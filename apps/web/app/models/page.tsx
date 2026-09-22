@@ -44,9 +44,9 @@ export default function ModelsPage() {
   return (
     <div className="page">
       <PageHeader
-        eyebrow="Runtime inventory"
-        title="Models & configuration"
-        description="Inspect public model capabilities and choose an allow-listed pipeline configuration. Secrets, environment variables, cache paths, and backend internals are never returned to the browser."
+        eyebrow="Models"
+        title="Model configurations"
+        description="Inspect the models available to each route."
         action={
           <div className="toolbar">
             <select
@@ -80,7 +80,7 @@ export default function ModelsPage() {
             <div className="panel-head">
               <div>
                 <h2>{config?.name ?? selected}</h2>
-                <p>Ordered weakest / cheapest to strongest / most expensive</p>
+                <p>{models.length} configured model{models.length === 1 ? "" : "s"}</p>
               </div>
               <div className="badges">
                 <span className={`badge ${config?.simulated ? "info" : "good"}`}>
@@ -89,21 +89,6 @@ export default function ModelsPage() {
                 <span className={`badge ${config?.ready_for_inference ? "good" : "bad"}`}>
                   {config?.ready_for_inference ? "Ready" : "Requires fitting"}
                 </span>
-              </div>
-            </div>
-            <div className="panel-body">
-              <div className="flow">
-                {models.map((item, index) => (
-                  <span key={item.name} style={{ display: "contents" }}>
-                    <span
-                      className="tier-chip"
-                      style={{ "--tier": index / Math.max(models.length - 1, 1) } as React.CSSProperties}
-                    >
-                      {item.name}
-                    </span>
-                    {index < models.length - 1 && <b>→</b>}
-                  </span>
-                ))}
               </div>
             </div>
           </section>
@@ -141,23 +126,6 @@ export default function ModelsPage() {
               </div>
             </article>
           ))}
-
-          <section className="panel span-2">
-            <div className="panel-head">
-              <div>
-                <h2>Safe configuration surface</h2>
-                <p>Changes are request-scoped and validated by Pydantic</p>
-              </div>
-            </div>
-            <div className="panel-body">
-              <p className="lede" style={{ margin: 0 }}>
-                The playground supports automatic or fixed-model routing, language hints, expected
-                answer type, verification, and escalation. Persistent configuration editing and
-                experiment execution are intentionally kept out of the public API; edit reviewed
-                YAML files and use the CLI for those operations.
-              </p>
-            </div>
-          </section>
         </div>
       )}
     </div>

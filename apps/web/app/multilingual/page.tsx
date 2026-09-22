@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { formatNumber, formatPercent } from "@/components/metric";
-import { Bars } from "@/components/simple-chart";
 import { EmptyState, ErrorState, PageHeader } from "@/components/shell";
 import { getExperiments, getMetrics } from "@/lib/api";
 import type { ExperimentMetrics, ExperimentSummary } from "@/lib/types";
@@ -74,26 +73,12 @@ export default function MultilingualPage() {
   const languages = metrics?.systems[activeSystem]?.by_language ?? {};
   const languageCodes = Object.keys(languages);
 
-  const accuracyBars = languageCodes.flatMap((code) => {
-    const mean = languages[code].accuracy?.mean;
-    return mean == null
-      ? []
-      : [{ label: languageName(code), value: mean, detail: formatPercent(mean) ?? "—" }];
-  });
-
-  const coverageBars = languageCodes.flatMap((code) => {
-    const mean = languages[code].n?.mean;
-    return mean == null
-      ? []
-      : [{ label: languageName(code), value: mean, detail: String(Math.round(mean)) }];
-  });
-
   return (
     <div className="page">
       <PageHeader
-        eyebrow="Reliability by population"
-        title="Multilingual evaluation"
-        description="Compare languages without hiding dataset coverage or conflating Iranian Persian with Dari. Values come directly from the selected stored run."
+        eyebrow="Languages"
+        title="Multilingual results"
+        description="Compare performance across supported languages."
         action={
           <div className="toolbar">
             <select
@@ -138,35 +123,11 @@ export default function MultilingualPage() {
         </div>
       ) : (
         <div className="content-grid">
-          <section className="panel">
-            <div className="panel-head">
-              <div>
-                <h2>Accuracy</h2>
-                <p>Within {activeSystem.replaceAll("_", " ")}</p>
-              </div>
-            </div>
-            <div className="panel-body">
-              <Bars items={accuracyBars} />
-            </div>
-          </section>
-
-          <section className="panel">
-            <div className="panel-head">
-              <div>
-                <h2>Sample coverage</h2>
-                <p>Test records contributing to each mean</p>
-              </div>
-            </div>
-            <div className="panel-body">
-              <Bars items={coverageBars} />
-            </div>
-          </section>
-
           <section className="panel span-2">
             <div className="panel-head">
               <div>
-                <h2>Reliability detail</h2>
-                <p>Confidence quality, routing, and escalation by language</p>
+                <h2>{activeSystem.replaceAll("_", " ")}</h2>
+                <p>Quality and routing by language</p>
               </div>
             </div>
             <div className="panel-body table-wrap">
@@ -212,9 +173,7 @@ export default function MultilingualPage() {
 
           <section className="panel span-2">
             <div className="panel-body notice">
-              Dataset composition differs by language. Cross-language headline comparisons can mix
-              language effects with task and dataset effects; use parallel Belebele and SIB-200
-              subsets for cleaner comparisons.
+              Dataset coverage differs by language; compare like-for-like subsets when possible.
             </div>
           </section>
         </div>

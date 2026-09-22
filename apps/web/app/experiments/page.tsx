@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Metric, formatNumber, formatPercent } from "@/components/metric";
-import { Bars, ScatterChart } from "@/components/simple-chart";
+import { formatNumber, formatPercent } from "@/components/metric";
+import { ScatterChart } from "@/components/simple-chart";
 import { EmptyState, ErrorState, PageHeader } from "@/components/shell";
 import { artifactUrl, getExperiment, getExperiments, getMetrics } from "@/lib/api";
 import type { ExperimentDetail, ExperimentMetrics, ExperimentSummary } from "@/lib/types";
@@ -10,13 +10,7 @@ import type { ExperimentDetail, ExperimentMetrics, ExperimentSummary } from "@/l
 /** Figures worth showing inline; the rest stay available through the API. */
 const HEADLINE_FIGURES = [
   "pareto_accuracy_vs_cost.png",
-  "pareto_accuracy_vs_latency.png",
-  "router_confusion_matrix.png",
-  "model_selection_distribution.png",
   "reliability_diagram.png",
-  "calibration_by_model.png",
-  "cost_vs_escalation_rate.png",
-  "error_types.png",
 ];
 
 function runLabel(run: ExperimentSummary) {
@@ -70,7 +64,6 @@ export default function ExperimentsPage() {
   const loading = Boolean(selected) && !metrics && !error;
 
   const selectable = useMemo(() => runs.filter((run) => run.has_metrics), [runs]);
-  const withoutMetrics = runs.length - selectable.length;
   const run = runs.find((item) => item.id === selected);
 
   const points = useMemo(() => {
@@ -82,23 +75,14 @@ export default function ExperimentsPage() {
     });
   }, [metrics]);
 
-  const reference = metrics?.systems[metrics.reference_system];
-  const referenceErrors = metrics?.errors.per_system?.[metrics?.reference_system ?? ""] ?? {};
-  const errorBars = Object.entries(referenceErrors)
-    .sort((a, b) => b[1] - a[1])
-    .map(([label, count]) => ({
-      label: label.replaceAll("_", " "),
-      value: count,
-      detail: String(count),
-    }));
   const figures = detail?.available_figures.filter((name) => HEADLINE_FIGURES.includes(name)) ?? [];
 
   return (
     <div className="page">
       <PageHeader
-        eyebrow="Stored evidence"
-        title="Experiment dashboard"
-        description="Inspect locally available run artifacts. Every value is loaded from a manifest or processed metrics file."
+        eyebrow="Experiments"
+        title="Compare runs"
+        description="Review performance, cost, and reliability."
         action={
           <div className="toolbar">
             <select
@@ -137,7 +121,7 @@ export default function ExperimentsPage() {
             <div className="panel-head">
               <div>
                 <h2>{run?.name}</h2>
-                <p>{run?.description || "Stored research run"}</p>
+                <p>{run?.description || "Stored run"}</p>
               </div>
               <span className={`badge ${metrics.simulated ? "info" : "good"}`}>
                 {metrics.simulated ? "Simulated" : "Real model run"}
@@ -173,7 +157,7 @@ export default function ExperimentsPage() {
             <div className="panel-head">
               <div>
                 <h2>Quality–compute trade-off</h2>
-                <p>Mean test accuracy versus estimated forward-pass TFLOPs per query</p>
+                <p>Accuracy versus estimated compute</p>
               </div>
             </div>
             <div className="panel-body">
@@ -189,7 +173,7 @@ export default function ExperimentsPage() {
             <div className="panel-head">
               <div>
                 <h2>System comparison</h2>
-                <p>Means over recorded seeds; unavailable measurements remain blank</p>
+                <p>Mean values across recorded seeds</p>
               </div>
             </div>
             <div className="panel-body table-wrap">
@@ -230,61 +214,12 @@ export default function ExperimentsPage() {
             </div>
           </section>
 
-          {reference && (
-            <section className="panel span-2">
-              <div className="panel-head">
-                <div>
-                  <h2>Reference system</h2>
-                  <p>{metrics.reference_system.replaceAll("_", " ")}</p>
-                </div>
-              </div>
-              <div className="panel-body">
-                <div className="metric-grid">
-                  <Metric label="Accuracy" value={formatPercent(reference.metrics.accuracy?.mean)} />
-                  <Metric
-                    label="Compute / query"
-                    value={formatNumber(reference.metrics.tflops_mean?.mean)}
-                    note="estimated TFLOPs"
-                  />
-                  <Metric
-                    label="Median latency"
-                    value={
-                      reference.metrics.latency_p50_s?.mean == null
-                        ? null
-                        : `${reference.metrics.latency_p50_s.mean.toFixed(2)} s`
-                    }
-                  />
-                  <Metric
-                    label="Escalation rate"
-                    value={formatPercent(reference.metrics.escalation_rate?.mean)}
-                  />
-                </div>
-              </div>
-            </section>
-          )}
-
-          {errorBars.length > 0 && (
-            <section className="panel span-2">
-              <div className="panel-head">
-                <div>
-                  <h2>Error categories</h2>
-                  <p>
-                    Automatic taxonomy counts for {metrics.reference_system.replaceAll("_", " ")}
-                  </p>
-                </div>
-              </div>
-              <div className="panel-body">
-                <Bars items={errorBars} />
-              </div>
-            </section>
-          )}
-
           {figures.length > 0 && (
             <section className="panel span-2">
               <div className="panel-head">
                 <div>
-                  <h2>Stored run figures</h2>
-                  <p>Generated by the evaluation pipeline, not reconstructed in the browser</p>
+                  <h2>Selected figures</h2>
+                  <p>Key outputs from this run</p>
                 </div>
               </div>
               <div className="panel-body figure-grid">
@@ -303,16 +238,6 @@ export default function ExperimentsPage() {
             </section>
           )}
 
-          {withoutMetrics > 0 && (
-            <section className="panel span-2">
-              <div className="panel-body notice">
-                {withoutMetrics} further run{withoutMetrics === 1 ? "" : "s"} (RAG and tool-use
-                analyses) produce their own summary files rather than processed metrics, so they
-                cannot be shown here. Inspect them with <code>routeguard rag-eval</code> and{" "}
-                <code>routeguard tool-eval</code>.
-              </div>
-            </section>
-          )}
         </div>
       )}
     </div>

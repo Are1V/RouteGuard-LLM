@@ -10,7 +10,7 @@ const links = [
   ["/", "Inference"],
   ["/experiments", "Experiments"],
   ["/multilingual", "Multilingual"],
-  ["/models", "Models & config"],
+  ["/models", "Models"],
   ["/about", "About"],
 ];
 
@@ -28,7 +28,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </span>
           <span>
             <strong>RouteGuard</strong>
-            <small>Research console</small>
+            <small>Routing console</small>
           </span>
         </Link>
         <nav aria-label="Primary navigation">

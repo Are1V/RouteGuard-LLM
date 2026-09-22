@@ -152,9 +152,9 @@ export default function InferencePage() {
   return (
     <div className="page">
       <PageHeader
-        eyebrow="Live pipeline"
-        title="Inference playground"
-        description="Run one request through the same analysis, routing, confidence, verification, and escalation components used by the Python framework."
+        eyebrow="Inference"
+        title="Run a request"
+        description="Route a prompt and inspect the result."
       />
       {error != null && <ErrorState error={error} />}
 
@@ -163,15 +163,13 @@ export default function InferencePage() {
           <div className="panel-head">
             <div>
               <h2>Request</h2>
-              <p>Validated against the API schema</p>
+              <p>Configure and submit</p>
             </div>
           </div>
           <div className="panel-body form-grid">
             {selectedConfig?.simulated && (
               <div className="notice">
-                <strong>Simulated backend.</strong> No model runs. Answers are replayed from the
-                bundled demo questions below; any other query returns a placeholder. The routing,
-                confidence, verification, and escalation steps are real, the answer content is not.
+                <strong>Demo mode.</strong> Choose a sample question for a complete trace.
               </div>
             )}
 
@@ -338,10 +336,7 @@ export default function InferencePage() {
             <div className="empty-state">
               <span>→</span>
               <h3>No trace yet</h3>
-              <p>
-                Submit a query to inspect each routing and reliability decision. Nothing is shown
-                until the API returns a result.
-              </p>
+              <p>Submit a request to see the route and result.</p>
             </div>
           ) : (
             <div className="panel-body">
@@ -354,9 +349,7 @@ export default function InferencePage() {
 
               {unresolved && result.simulated && !isKnownExample && (
                 <div className="notice" style={{ marginTop: 12 }}>
-                  The simulated backend has no reference answer for this query, so it returned a
-                  placeholder and the pipeline escalated. Pick one of the bundled demo questions,
-                  or switch to a configuration backed by real models.
+                  Demo mode only answers the sample questions. Choose one above or connect a model.
                 </div>
               )}
 
