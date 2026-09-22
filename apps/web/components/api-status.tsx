@@ -43,7 +43,7 @@ export function ApiStatus() {
     state.kind === "live" ? "Connected" : state.kind === "down" ? "Offline" : "Connecting";
 
   return (
-    <div className={`sidebar-note status-${state.kind === "checking" ? "idle" : state.kind}`}>
+    <div className={`api-status status-${state.kind === "checking" ? "idle" : state.kind}`}>
       <span className="status-dot" aria-hidden="true" />
       <span role="status">{label}</span>
       <small>{state.detail}</small>

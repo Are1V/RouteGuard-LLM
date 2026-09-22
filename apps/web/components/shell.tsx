@@ -21,36 +21,32 @@ export function Shell({ children }: { children: ReactNode }) {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <aside className="sidebar">
-        <Link href="/" className="brand" aria-label="RouteGuard home">
-          <span className="brand-mark" aria-hidden="true">
-            RG
-          </span>
-          <span>
+      <header className="topbar">
+        <div className="topbar-inner">
+          <Link href="/" className="brand" aria-label="RouteGuard home">
+            <span className="brand-mark" aria-hidden="true">
+              RG
+            </span>
             <strong>RouteGuard</strong>
-            <small>Routing console</small>
-          </span>
-        </Link>
-        <nav aria-label="Primary navigation">
-          {links.map(([href, label], index) => {
-            const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={active ? "active" : ""}
-                aria-current={active ? "page" : undefined}
-              >
-                <span className="nav-index" aria-hidden="true">
-                  0{index + 1}
-                </span>
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-        <ApiStatus />
-      </aside>
+          </Link>
+          <nav aria-label="Primary navigation">
+            {links.map(([href, label]) => {
+              const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={active ? "active" : ""}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+          <ApiStatus />
+        </div>
+      </header>
       <main id="main" tabIndex={-1}>
         {children}
       </main>
